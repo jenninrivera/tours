@@ -1,0 +1,85 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "scope",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "Scope refers the location that a named entity (such as a variable or function) is defined, and where that entity can be accessed in the code"
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "This variable x is defined in the global scope",
+      "line": 3
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "The variable y is also defined in the global scope",
+      "line": 4
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "Despite having the same name as the global variable above, this x is a paramter which belongs to the function scope of f. When the same name is used by variables in different scopes, this is called \"shadowing\"",
+      "line": 5
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "Here we reassign the value of the paramter x to 6. This will NOT affect the value of the global variable x",
+      "line": 7
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "When we print x here, it won't have the value of the globally scoped x, but the value of the parameter, which is currently 6",
+      "line": 8
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "We can access globally scoped variable from anywhere: y will have the value that we gave it at the top",
+      "line": 10
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "Here we declare a block scoped variable x. After making this declaration, any time we use x within this block (the area delimited by the curly braces) will reference this variable (not the parameter, not the globally scoped x) ",
+      "line": 11
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "Printing out x here will therefore show the number 7",
+      "line": 12
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "Now the value of x is 6 again. That is because it is not refering to the x within the block. In fact, we cannot refer to it any more; we are outside of the scope it was declared in (the if statement block)",
+      "line": 14
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "We can also change the value of a globally scoped variables within other scopes, and it will take effect everywhere",
+      "line": 15
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "Now x is again refering to the globally scoped variable x",
+      "line": 18
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "y will have the same value we gave it at the top (remember that we have not called the function yet! None of that code has been _executed_, it has only been _defined_)",
+      "line": 19
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "Now we've called the function f, passing it the value of the global variable x",
+      "line": 20
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "The value of y has been changed because we reassigned it in the function",
+      "line": 21
+    },
+    {
+      "file": "js/functions/scope.js",
+      "description": "Notice that the value of x has the same value that we gave it at the top. This is because the other x's in the function belonged to the scopes the were defined in. Since we are not currently in the function scope (we are back in the global scope), we cannot access those x's.",
+      "line": 22
+    }
+  ]
+}

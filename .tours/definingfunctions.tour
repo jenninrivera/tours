@@ -1,0 +1,60 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "definingFunctions",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "Functions are reuseable sets of instructions. Previously we have written code in a file and each line gets executed once (or multiple times in a loop). Functions allow us to repeat this execution an arbitrary number of times, and also pass different values to the code that is to be executed. "
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Here we define a function that has a name \"logWithNoReturn\" and has no parameters. The code inside will not execute until we call it",
+      "line": 8
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Here we assign the result of the function call to `logWithNoReturn` to a variable `result`. The _function call_ consists of stating the name of the function and appending () to the end.",
+      "line": 11
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "When we print out the result, we get \"undefined\". This is because `logWithNoReturn` has no return statement. So the console log prints out the message, but there is no actual value returned from the function",
+      "line": 12
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Now we define a function `increment` that defines one parameter `x`. It returns the sum of x and one",
+      "line": 13
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Notice that we can call increment _above_ its definition. While this is not possible with normal variables, named function declarations are *hoisted* to the top of the file by the system so that we can call them from anywhere regardless of where we defined them.",
+      "line": 6
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Calling increment again. When we call a function that has parameters, the values we pass it are called _arguments_. Parameters are the variables defined in the function definition and are available in that function's scope. Arguments are the values we pass when calling the function",
+      "line": 17
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "We can assign a constant (or variable) to a function that has already been defined",
+      "line": 20
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Notice that we are not calling the function here! We are only referring to the definition",
+      "line": 22
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "On this line we are actually calling the function with the argument 2",
+      "line": 23
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "We can also assign a function to a constant or variable at the moment when we define it",
+      "line": 25
+    }
+  ]
+}
