@@ -1,7 +1,7 @@
 
 
-var x = 5
-var y = 0
+let x = 5
+let y = 0
 function f(x){
     console.log(`the value of the globally scoped variable y inside a function: ${y}`)
     x = 6

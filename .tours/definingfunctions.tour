@@ -4,11 +4,11 @@
   "steps": [
     {
       "title": "Introduction",
-      "description": "Functions are reuseable sets of instructions. Previously we have written code in a file and each line gets executed once (or multiple times in a loop). Functions allow us to repeat this execution an arbitrary number of times, and also pass different values to the code that is to be executed. "
+      "description": "Functions are reuseable sets of instructions. Previously we have written code in a file and each line gets executed once (or multiple times in a loop). Functions allow us to repeat this execution an arbitrary number of times, and also pass different values to the code that is to be executed. Javascript has many ways of declaring functions. Don't worry about memorizing the syntax of each--the important thing is that you can recognize the different forms when you see them."
     },
     {
       "file": "js/functions/defining.js",
-      "description": "Here we define a function that has a name \"logWithNoReturn\" and has no parameters. The code inside will not execute until we call it",
+      "description": "Here we define a function that has a name \"logWithNoReturn\" and has no parameters. The code inside will not execute until we call it. Note that this function does **not** return any value. It prints something to the console. but this is **not** the same as returning a value.",
       "line": 8
     },
     {
@@ -18,12 +18,12 @@
     },
     {
       "file": "js/functions/defining.js",
-      "description": "When we print out the result, we get \"undefined\". This is because `logWithNoReturn` has no return statement. So the console log prints out the message, but there is no actual value returned from the function",
+      "description": "When we print out the result, we get \"undefined\". This is because `logWithNoReturn` has no return statement. So the console log prints out the message, but there is no actual value returned from the function.\n**Reminder**: we are performing **string interpolation** here (and throughout this file). As a reminder, we create string interpolation with a backtick character (looks like this `) and insert any javascript code by putting ${code} inside of the backticks. In this case the javascript code is simply a variable",
       "line": 12
     },
     {
       "file": "js/functions/defining.js",
-      "description": "Now we define a function `increment` that defines one parameter `x`. It returns the sum of x and one",
+      "description": "Now we define a function `increment` that defines one parameter `x`. It returns the sum of x and one. Remember that the `return` statement will be the **last** statements that execute in the function. If you put code after a return statement (within the same scope), that code will **not** execute",
       "line": 13
     },
     {
@@ -55,6 +55,81 @@
       "file": "js/functions/defining.js",
       "description": "We can also assign a function to a constant or variable at the moment when we define it",
       "line": 25
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "An anonymous function is a function that we don't (immediately) give a name to. We use anonymous functions when we don't need to call it in multiple places. This concept will further used when we look at callbacks and higher order functions",
+      "line": 31
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "We can use the function keyword to define an anonymous function. It's basically the same as the way we've been doing it up until now, but we omit the name and immediately put ()",
+      "line": 35
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "In order to call an anonymous function directly after defining it, we have to surround the definition in parentheses, then append another set of parentheses at the end. So it's (definition)(). This is not something you'll do often, it's just to demonstrate the result of calling the function",
+      "line": 36
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Similarly to named functions, we can define anonymous functions with paramters",
+      "line": 38
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Similarly to before, we can call the function and pass an argument.",
+      "line": 39
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "We can also omit the function keyword and use an arrow instead. This is called an \"arrow function.\"",
+      "line": 43
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Like above, we can immediately call the arrow function by surrounding it in parentheses and adding () to the end",
+      "line": 44
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "An arrow function can take parameters. Note that so far we have been defining arrow functions without curly braces. This means that whatever expression is on the right becomes the return value. This is called an **implicit return**",
+      "line": 46
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "At this point we've seen this form a few times. Why is the definition surrounding by parentheses here?",
+      "line": 47
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Arrow functions can be defined with multiple parameters. Note that we must surround the paramters with parentheses",
+      "line": 50
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "As with named functions, we can assign an anonymous function to a constant or a variable",
+      "line": 52
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Here we are referring to the function itself",
+      "line": 53
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Here we are calling the function with the arguments 5 and 6. ",
+      "line": 54
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "Arrow functions can also be defined with curly braces. We use this instead of the implicit return form when we want to do multiple things within a function. In this case, we are defining a variable and returning its value.",
+      "line": 56
+    },
+    {
+      "file": "js/functions/defining.js",
+      "description": "The rest of the file simply contains more examples of arrow functions; make sure you understand what is going on",
+      "line": 57
     }
   ]
 }

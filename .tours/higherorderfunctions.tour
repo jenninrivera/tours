@@ -1,0 +1,76 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "higherOrderFunctions",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "You can think of higher order functions as functions that take other functions as arguments. We will be focusing on the higher order functions `forEach`, `map`, `filter`, and `reduce` which we will use extensively to manipulate arrays in Javascript"
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "Here is the array we will be working with",
+      "line": 4
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "For each is very similar to the for/of loop: we are calling this function **on** the numbers array (denoted with the dot notation) which basically means that `forEach` has access to the elements of `numbers`. Instead of declaring a variable that will get each element consecutively as in the for/of, we instead pass an anonymous function (specficially an arrow function with one parameter). You may note that console.log does not return anything, which means that the implicit return in the arrow function won't be returning anything. This is ok, since `forEach` also does not return anything. ",
+      "line": 9
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "The `map` function is called on an array with a function as its arguemtn and returns a **new** array in which the function has been applied to each element. In this example, we have defined a function `increment`. When we call `map` on `numbers` and pass `increment` to `map`, `map` will call `increment` on each of the elements of `numbers`. So calling map on the array [1,2,3,4,5] conceptually expand to\n[increment(1), increment(2),  increment(3), increment(4), increment(5)]\nAnd when each of those function calls finishes, we are left with a new array [2,3,4,5,6] ",
+      "line": 15
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "This is exactly equivalent to the above, but with an arrow function",
+      "line": 17
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "Filter does exactly what the name says: it returns a new array with some of the elements filtered out",
+      "line": 19
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "As with `map` and `forEach`, we have to pass filter a function. The function should evaluate to true for the elements you want to be added to the new array, and false to the elements you do not want in the new array",
+      "line": 21
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "In this case, we want odd numbers. To decide if a number is odd, we can use the `modulus` operator % which returns the remainder that results from dividing the left operand by the right operand. An odd number by definition will have a remainder of 1 when divided by 2",
+      "line": 22
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "Remember that since we are using an arrow function with curly braces, we must put a return statement (i.e. an **explicit** return). Only arrow functions **without** curly braces can have an implicit return",
+      "line": 23
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "Recall how conditionals work: if the if conditional is false, then we will always go to the else",
+      "line": 25
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "This is the exact same filter statement as above, but using an implicit return instead of an explicit return.",
+      "line": 31
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "Reduce is the hardest higher order function to understand but also the least commonly used. In fact, you can skip this section if you're struggling with the other three, they are more important. This is just here for completeness",
+      "line": 33
+    },
+    {
+      "file": "js/basics/iteration.js",
+      "description": "Familiarize yourself with how summing works with looping before we move on to how it is done with `reduce`",
+      "line": 2
+    },
+    {
+      "file": "js/functions/higherOrder.js",
+      "description": "There's a lot going on here, so let's break it down:\n`reduce` takes a function that has two parameters. \n- `accumulator` gets the value that was returned from the previous iteration\n- `currentValue` is the value of the current element in the array\n- `initialValue` is the value that `accumulator` starts with at the beginning\nIn this case, we are giving `accumulator` the value of 0 to start. Every time we process an element, `accumulator` gets the value of `accumulator + currentValue` (In other words, it is a lot like `accumulator = accumulator + currentValue`, which looks a lot like `total = total + num` in our iteration code).\n\nLet's go element by element in our array of [1,2,3,4,5]:\n\nBeginning:\naccumulator == 0\ncurrentValue == 1\n\nStep 1:\naccumulator == 1\ncurrentValue == 2\n\nStep 2:\naccumulator == 3\ncurrentValue == 3\n\nStep 3:\naccumulator == 6\ncurrentValue == 4\n\nStep 4:\naccumulator == 10\ncurrentValue == 5\n\nStep 5:\naccumulator == 15\nAt this point `reduce` returns the value in `accumulator`",
+      "line": 37
+    }
+  ],
+  "ref": "master"
+}

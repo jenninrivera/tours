@@ -16,45 +16,44 @@ function increment(x){
 
 console.log(`calling increment after was defined: ${increment(5)}`)
 
-const constantContainingFunction = function theFunctionItself(){
-    console.log("hello from a function that was assigned to a constant")
-}
 
-console.log(`printing a function: ${constantContainingFunction}`)
-console.log(`calling a function and printing the result: ${constantContainingFunction()}`)
 const incrementFunctionInAConstant = increment
 
-console.log(`printing a function: ${incrementFunctionInAConstant}`)
-console.log(`calling a function and printing the result: ${incrementFunctionInAConstant(2)}`)
+console.log(`printing a the increment function: ${incrementFunctionInAConstant}`)
+console.log(`calling the increment function through a constant and printing the result: ${incrementFunctionInAConstant(2)}`)
 
+const squaredConstant = function square(x){
+    return x * x
+}
 
 
 /***********************
  * Anonymous Functions *
  ***********************/
-// using function keyword
-console.log(`function keyword style anonymous function ${function(){ return 5}}`)
-console.log(`calling an anonymous function that returns 5 ${(function(){ return 5})()}`)
+
+// using the function keyword
+console.log(`function keyword style anonymous function: ${function(){ return 5}}`)
+console.log(`calling an anonymous function that returns 5: ${(function(){ return 5})()}`)
  
 console.log(function(x){ return x + 5})
-console.log((function(x){ return x + 5})())
+console.log((function(x){ return x + 5})(10))
 
 
 // arrow function 
-console.log(`arrow function that takes no parameters ${() => 5}`)
-console.log(`calling an arrow function that takes no parameters ${(() => 5)()}`)
+console.log(`arrow function that takes no parameters: ${() => 5}`)
+console.log(`calling an arrow function that takes no parameters: ${(() => 5)()}`)
 
 console.log(`arrow function takes one parameter ${x => x + 5}`)
-console.log(`calling arrow function takes one parameter ${(x => x + 5)()}`)
+console.log(`calling arrow function takes one parameter: ${(x => x + 5)(10)}`)
 
 
-console.log(`arrow function that takes two parameters ${(x, y) => x + y}`)
-console.log(`calling an arrow function that takes two parameters ${((x, y) => x + y)(2,3)}`)
+console.log(`arrow function that takes two parameters: ${(x, y) => x + y}`)
+console.log(`calling an arrow function that takes two parameters: ${((x, y) => x + y)(2,3)}`)
 const add = (x, y) => x + y 
-console.log(`the constant add containing an arrow function ${add}`)
-console.log(`calling the function in the constant add with the arguments 5 and 6 ${add (5,6)}`) 
+console.log(`the constant add containing an arrow function: ${add}`)
+console.log(`calling the function in the constant add with the arguments 5 and 6: ${add (5,6)}`) 
 
-console.log(`arrow function with curly braces ${() => {let x = 5; return x;}}`)
+console.log(`arrow function with curly braces: ${() => {let x = 5; return x;}}`)
 const anonFuncNoParams = () => {
   let x = 5
   console.log(`printing a local variable from an anonymous function ${x}`)
@@ -63,6 +62,7 @@ const anonFuncNoParams = () => {
 
 const anonFuncOneParam = x => {
  console.log(`printing a parameter from an anonymous function ${x}`) 
+ return x
 }
 
 const anonFuncTwoParams = (x, y) => {
@@ -70,7 +70,6 @@ const anonFuncTwoParams = (x, y) => {
 }
 
 console.log(`anonFuncNoParams ${anonFuncNoParams()}`)
-console.log(`anonFuncOneParams ${anonFuncNoParams(19)}`)
-console.log(`anonFuncTwoParams ${anonFuncNoParams(5, 6)}`)
-
+console.log(`anonFuncOneParam ${anonFuncOneParam(19)}`)
+console.log(`anonFuncTwoParams ${anonFuncTwoParams(5, 6)}`)
 
