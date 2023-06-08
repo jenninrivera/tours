@@ -7,9 +7,9 @@ if(x == 0){
 
 
 if(x != 0){
-    console.log("this will NEVER print")
+    console.log("we will never reach the inside of this if statement because the condition is false")
 }else{
-    console.log("this will ALWAYS print")
+    console.log("we will always reach the inside of this else statement since the if condition is false")
 }
 
 
@@ -28,11 +28,11 @@ if(x == 1){
 switch(x){
     case 0:
         console.log("x == 0 from a switch statement")
+        break
     case 1:
         console.log("this will NEVER execute")
+        break
     case 2:
         console.log("this will NEVER execute")
         break;
-       
-
 }

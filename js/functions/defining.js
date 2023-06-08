@@ -8,7 +8,7 @@ console.log(`calling increment before it was defined: ${increment(5)}`)
 function logWithNoReturn(){
     console.log('in a function that takes no arguments and has no return')
 }
-var result = logWithNoReturn()
+let result = logWithNoReturn()
 console.log(`printing the result of a function call with no return statement: ${result}`)
 function increment(x){
     return x + 1
@@ -55,13 +55,10 @@ console.log(`calling the function in the constant add with the arguments 5 and 6
 
 console.log(`arrow function with curly braces: ${() => {let x = 5; return x;}}`)
 const anonFuncNoParams = () => {
-  let x = 5
-  console.log(`printing a local variable from an anonymous function ${x}`)
-  return x
+  return 5
 }
 
 const anonFuncOneParam = x => {
- console.log(`printing a parameter from an anonymous function ${x}`) 
  return x
 }
 
@@ -69,7 +66,7 @@ const anonFuncTwoParams = (x, y) => {
   return x + y
 }
 
-console.log(`anonFuncNoParams ${anonFuncNoParams()}`)
-console.log(`anonFuncOneParam ${anonFuncOneParam(19)}`)
-console.log(`anonFuncTwoParams ${anonFuncTwoParams(5, 6)}`)
+console.log(`anonFuncNoParams returns ${anonFuncNoParams()}`)
+console.log(`anonFuncOneParam returns ${anonFuncOneParam(19)}`)
+console.log(`anonFuncTwoParams returns ${anonFuncTwoParams(5, 6)}`)
 
