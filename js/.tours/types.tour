@@ -1,0 +1,95 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "types",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "A **type** is the category of value that a programming language understands. All values in Javascript have one and one type, although we don't have to say what this type is at variable declaration. We'll go over all the types, how to determine the type of a variable, as well as some ways of interacting with different types."
+    },
+    {
+      "file": "basics/types.js",
+      "description": "The simplest type is `boolean`: a boolean can either be `true` or `false`. Booleans are most often used in conditionals and loops.",
+      "line": 3
+    },
+    {
+      "file": "basics/types.js",
+      "description": "The `typeof` operator returns what type a variable is. Its use is encouraged whenever you aren't sure what kind of data you are working with (often you will think you are working with a variable of one type, but it is in fact of a different type. So if something is not working the way you expect: check its type!)",
+      "line": 7
+    },
+    {
+      "file": "basics/types.js",
+      "description": "All numbers in Javascript are represented by the `number` type. Note that this include both integers and numbers with decimal values (which we call `floats`)",
+      "line": 8
+    },
+    {
+      "file": "basics/types.js",
+      "description": "Strings are lists of characters. They can be declared with a single or double quote, but the same type of quote must be used for a single string (so we can't start with ' and end with \")",
+      "line": 17
+    },
+    {
+      "file": "basics/types.js",
+      "description": "Objects are the most complicated type in Javascript. We'll go over two kinds--Arrays and JSON",
+      "line": 22
+    },
+    {
+      "file": "basics/types.js",
+      "description": "An array is simply a list of elements. The elements can be of any type, even other arrays. Although it's possible to put elements of different types in the same array, this will only make your life harder, so it's better to try to keep all elements of an array as the same type",
+      "line": 24
+    },
+    {
+      "file": "basics/types.js",
+      "description": "An array is an object",
+      "line": 25
+    },
+    {
+      "file": "basics/types.js",
+      "description": "If we want to get the first element of an array, we use this syntax. Notice that we start at 0, not 1. ",
+      "line": 26
+    },
+    {
+      "file": "basics/types.js",
+      "description": "We can determine the length of any array by appending `.length` to it. How could we use this to get the last element of an array? (Remember how we got the first element!!)",
+      "line": 27
+    },
+    {
+      "file": "basics/types.js",
+      "description": "A JSON object (remember, of type `object`) has the format { key1: value, key2:value, keyN:value} (the N in keyN is just a placeholder meaning that we want to think of N as a number, but don't care about its value specifically). ",
+      "line": 30
+    },
+    {
+      "file": "basics/types.js",
+      "description": "A key can be any string (but we don't have to include quotes), while if we want a string as a value, we must include the quotes",
+      "line": 31
+    },
+    {
+      "file": "basics/types.js",
+      "description": "The value can also be an array",
+      "line": 32
+    },
+    {
+      "file": "basics/types.js",
+      "description": "In fact, the value can be be of **any** type, including other objects",
+      "line": 33
+    },
+    {
+      "file": "basics/types.js",
+      "description": "We can get a value within an object by referring to the name of a key like this",
+      "line": 38
+    },
+    {
+      "file": "basics/types.js",
+      "description": "We can also get a value by specifying a key like this. It's important to be aware of both syntaxes",
+      "line": 39
+    },
+    {
+      "file": "basics/types.js",
+      "description": "Any values that are also objects can be treated like any other object",
+      "line": 42
+    },
+    {
+      "file": "basics/types.js",
+      "description": "It's **very** important to understand the difference between an object and an **array** of objects. We **cannot** access the value of an object directly from an array: we must first specify which object in the array we want (here we are getting the first element) and **then** specifying the key within that object. In other words, doing `arrayOfObj.number` **will not work**. If you are unable to get the key of an object, it may because you are not working with that object, but with an array. ",
+      "line": 51
+    }
+  ]
+}

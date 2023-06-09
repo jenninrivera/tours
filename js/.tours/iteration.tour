@@ -7,52 +7,52 @@
       "description": "Iteration is what we do when we want to repeat the same action multiple times. We use the programming language concept of loops to accomplish this. In this tour we will examine 3 of the forms that loops can take in Javascript. To demonstrate how iteration works conceptually, we will find the sum of a list of numbers using the different loop forms "
     },
     {
-      "file": "js/basics/iteration.js",
+      "file": "basics/iteration.js",
       "description": "This is the list of numbers we will be summing. We can tell just by looking that the sum should be 15. We declare it as a constant because we will not be reassinging anything to this name",
       "line": 3
     },
     {
-      "file": "js/basics/iteration.js",
+      "file": "basics/iteration.js",
       "description": "This variable will hold the sum",
       "line": 4
     },
     {
-      "file": "js/basics/iteration.js",
+      "file": "basics/iteration.js",
       "description": "A while loop repeats the code in its body **while** its condition is true. Notice that we must declare this variable **outside** of the loop. If we declare it inside of the loop, it will get a new value every time the loop runs, instead of preserving the previous value across loop iterations. If this doesn't quite make sense, take a look at the tour on scope",
       "line": 6
     },
     {
-      "file": "js/basics/iteration.js",
+      "file": "basics/iteration.js",
       "description": "The condition that must be true for the loop to execute is that the variable arrayIndex must be less than the length of the numbers array",
       "line": 8
     },
     {
-      "file": "js/basics/iteration.js",
+      "file": "basics/iteration.js",
       "description": "We reassign total to equal the current value of total plus the value of numbers array at the index of arrayIndex",
       "line": 9
     },
     {
-      "file": "js/basics/iteration.js",
+      "file": "basics/iteration.js",
       "description": "Next we increment the arrayIndex variable by one. If we did not do this, the while condition would always be true (since arrayIndex starts at 0 and the length of numbers is 5), so the loop would last forever (i.e. an **infinite loop**)",
       "line": 10
     },
     {
-      "file": "js/basics/iteration.js",
+      "file": "basics/iteration.js",
       "description": "We reset the variable total to 0 so we can add up the numbers with a different type of loop",
       "line": 16
     },
     {
-      "file": "js/basics/iteration.js",
+      "file": "basics/iteration.js",
       "description": "The for loop form is a little complicated, let's break it down:\n- It starts with the `for` keyword and an open parenthesis (\n- Next there is a variable declaration `let i = 0`: usually this is the variable we use to count which iteration of the loop is currently happening. \n- A semicolon to separate the next part\n- The termination condition `i < numbers.length`: When this condition becomes false, the loop stops iterating. In this case, we want to stop when i is no longer less than the length of the numbers array\n- A semicolon to separate the next part\n- The variable update `i++`: This is shorthand for `i = i + 1`. In other words we are incrementing i. This expression will run every loop iteration.",
       "line": 17
     },
     {
-      "file": "js/basics/iteration.js",
+      "file": "basics/iteration.js",
       "description": "Again, this code is inside of the loop, therefore it will keep repeating as long as the condition in the for declaration is true. `total += numbers[i]` is shorthand for `total = total + numbers[i]`. Recall that `numbers[i]` means \"the i'th element in the numbers array",
       "line": 18
     },
     {
-      "file": "js/basics/iteration.js",
+      "file": "basics/iteration.js",
       "description": "The for/of loop lets us iterate over the items in an array directly, without having to keep track of an index and use the array[index] notation. We also don't have to specify a termination condition, since it will end automatically once all of the items in numbers have been iterated over. So the first time the loop runs, num will equal the first element of numbers (which is 1). The second time, num will be reassigned to the second element, and so on",
       "line": 24
     }

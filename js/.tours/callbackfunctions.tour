@@ -1,0 +1,25 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "callbackFunctions",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "A callback function is simply a function that we pass to a different location in our code to be called from that location. This is useful if we want to vary the behavior of our code based on what function has been passed to us"
+    },
+    {
+      "file": "functions/callback.js",
+      "description": "This is the function we will be using as our callback function. It defines one parameter and simply logs it to the console. There is nothing special about this function--any function can be used as a callback function",
+      "line": 3
+    },
+    {
+      "file": "functions/callback.js",
+      "description": "This is the function that will be calling our callback function. It does this by expecting a function to be passed as one of its arguments and then calling that function. Of course, it must be called with 1 argument (since we defined `callBackFunction` with 1 parameter).",
+      "line": 7
+    },
+    {
+      "file": "functions/callback.js",
+      "description": "As usual, we must call the function before the code inside it will execute. Notice that we are referring to `callBackFunction` **without** parentheses. If we added () to the end, it would cause `callBackFunction` to be immediately called.",
+      "line": 11
+    }
+  ]
+}

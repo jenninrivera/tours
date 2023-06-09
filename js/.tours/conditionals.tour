@@ -1,0 +1,80 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "conditionals",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "Conditionals are what we use to decide whether or not a section of code executes. The _condition_ that we use to decide this is a boolean value (either true or false), which is often derived from a comparison operation. We will go over those first"
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "The following group of comparison operators work just as you'd expect from math class (but ≤ is replaced with <= and ≥ is replaced with >=). Comparison operators always evaluate to a boolean. We generally only use these operators with numbers",
+      "line": 2
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "We aren't limited to comparing numbers with ===. We can also compare strings for example",
+      "line": 10
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "We can assign the result of a comparison to a variable.",
+      "line": 13
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "And compare that variable to `true` (or `false`)",
+      "line": 14
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "Because the condition is the if statement evaluated to true, whatever code is in the if statement will run",
+      "line": 15
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "We can actually omit the `=== true` comparison. If a condition is true, the if statement can determine this and take the appropriate action",
+      "line": 19
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "An `else` statement is code that we want to run **only** in the case that the if condition is `false`. If the if condition is `true`, then the code in the else block will **not** run.",
+      "line": 21
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "An `else if` statement will run only in the case that any if statement or `else if` statement that it is attached to (notice that it comes right after the curly braces of the if statement above) has not run",
+      "line": 29
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "Again, the code in this `else` block will only run if the preceding `if` and `else if` statements have not run",
+      "line": 33
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "A switch statement is very similar to a chain of `else if` statements in that it allows us to check multiple conditions. You don't have to worry about knowing how to use switch statements; this section is only to provide you with familiarity with this syntax",
+      "line": 39
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "The break statement is very important. It tells the switch statement to exit after this case statement executes. If we forget it, the next case statement will automatically execute",
+      "line": 42
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "The case statement looks at the variable in the switch statement and compares it for equality to the value following the `case` keyword for equality. So this `case` statement is equivalent to `if(x === 0)`",
+      "line": 40
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "Here's where we diverge from math class: to compare values for equality, we use 3 equal signs. You'll also see only 2 being used (==) but it is safer to use 3.",
+      "line": 8
+    },
+    {
+      "file": "basics/conditionals.js",
+      "description": "And if we want to say that two values are not equal, we replace the first equal sign with an exclamation point.",
+      "line": 9
+    }
+  ]
+}

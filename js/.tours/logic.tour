@@ -1,0 +1,55 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "logic",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "By logic we are referring to the mathematical logic used in programming language. We don't have to become master logicians to program, but we do need to understand the basics. This will be used in conditionals and loops"
+    },
+    {
+      "file": "basics/logic.js",
+      "description": "Logical AND is written with the && operator. ",
+      "line": 3
+    },
+    {
+      "file": "basics/logic.js",
+      "description": "Any condition that is joined by AND with a false value will evaluate to false as well",
+      "line": 4
+    },
+    {
+      "file": "basics/logic.js",
+      "description": "It doesn't matter how many true expressions there are; one false expression makes the whole thing false",
+      "line": 6
+    },
+    {
+      "file": "basics/logic.js",
+      "description": "Logical OR is written with the || operator",
+      "line": 8
+    },
+    {
+      "file": "basics/logic.js",
+      "description": "Any condition that is joined to a true expression by an OR evaluates to true",
+      "line": 9
+    },
+    {
+      "file": "basics/logic.js",
+      "description": "It doesn't matter how many false expressions there are; one true expression makes the whole thing evaluate to true",
+      "line": 11
+    },
+    {
+      "file": "basics/logic.js",
+      "description": "Logical NOT (negation) is written with the ! operator",
+      "line": 14
+    },
+    {
+      "file": "basics/logic.js",
+      "description": "If we apply NOT twice, we get the starting value",
+      "line": 17
+    },
+    {
+      "file": "basics/logic.js",
+      "description": "There is an order of operations for logical operations. Instead of memorizing them, group them with parentheses",
+      "line": 20
+    }
+  ]
+}

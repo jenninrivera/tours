@@ -1,0 +1,46 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "strings",
+  "steps": [
+    {
+      "file": "basics/strings.js",
+      "description": "Here we are declaring a string constant",
+      "line": 4
+    },
+    {
+      "file": "basics/strings.js",
+      "description": "We can combine strings with the plus operator",
+      "line": 7
+    },
+    {
+      "file": "basics/strings.js",
+      "description": "When we combine strings with values of other types, those values are converted to string automatically",
+      "line": 8
+    },
+    {
+      "file": "basics/strings.js",
+      "description": "String interpolation is done with a backtick character `. We can include any javascript code within the ${}",
+      "line": 10
+    },
+    {
+      "file": "basics/strings.js",
+      "description": "We can treat string like arrays",
+      "line": 12
+    },
+    {
+      "file": "basics/strings.js",
+      "description": "Just like an array, we can iterate over a string using a for loop",
+      "line": 15
+    },
+    {
+      "file": "basics/strings.js",
+      "description": "We must use the `Array.from()` function to convert a string to an array",
+      "line": 18
+    },
+    {
+      "file": "basics/strings.js",
+      "description": "To turn an array back into a string, we use the .join() method on the string. Try putting other values in the quotes!",
+      "line": 21
+    }
+  ]
+}

@@ -7,37 +7,37 @@
       "description": "Variables are simply containers to store values. Usually we want to store values in order to use later, or to pass to other part of our program for them to use."
     },
     {
-      "file": "js/basics/variables.js",
+      "file": "basics/variables.js",
       "description": "We declare a variable with the `let` keyword. Here we assign the value 0 to the variable `x`",
       "line": 3
     },
     {
-      "file": "js/basics/variables.js",
+      "file": "basics/variables.js",
       "description": "We can reference x by typing its name",
       "line": 4
     },
     {
-      "file": "js/basics/variables.js",
+      "file": "basics/variables.js",
       "description": "We can also reassign x with a new value",
       "line": 5
     },
     {
-      "file": "js/basics/variables.js",
+      "file": "basics/variables.js",
       "description": "When we print x, it has the new value we just gave it",
       "line": 6
     },
     {
-      "file": "js/basics/variables.js",
+      "file": "basics/variables.js",
       "description": "A constant is like a variable that can't be reassigned. We declare constants with the `const` keyword.",
       "line": 9
     },
     {
-      "file": "js/basics/variables.js",
+      "file": "basics/variables.js",
       "description": "If this line is uncommented (remove the //) and we run the code, there will be an error. This is because we tried to reassign y, which as a constant cannot be redefined",
       "line": 11
     },
     {
-      "file": "js/basics/variables.js",
+      "file": "basics/variables.js",
       "description": "We can change the _contents_ of y. This is not the same as reassigning, so the rule about constants does not apply here.",
       "line": 13
     }
