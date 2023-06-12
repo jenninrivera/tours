@@ -17,4 +17,4 @@ console.log(`NOT false: ${!false}`)
 console.log(`NOT NOT true: ${!!true}`)
 console.log(`NOT NOT false: ${!!false}`)
 
-console.log(`Multiple logical expressions should be grouped by parentheses for clarity: ${(true && false) || (false || (true && false )}`)
+console.log(`Multiple logical expressions should be grouped by parentheses for clarity: ${(true && false) || (false || (true && false ))}`)

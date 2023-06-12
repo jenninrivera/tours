@@ -68,6 +68,11 @@
     },
     {
       "file": "functions/higherOrder.js",
+      "description": "Since map and filter return a new list, we can chain them together. In this code, `filter` the number array to contain only numbers greater than 3, then we apply `map` to the result of that filter to increment each element of the array.",
+      "line": 36
+    },
+    {
+      "file": "functions/higherOrder.js",
       "description": "There's a lot going on here, so let's break it down:\n`reduce` takes a function that has two parameters. \n- `accumulator` gets the value that was returned from the previous iteration\n- `currentValue` is the value of the current element in the array\n- `initialValue` is the value that `accumulator` starts with at the beginning\nIn this case, we are giving `accumulator` the value of 0 to start. Every time we process an element, `accumulator` gets the value of `accumulator + currentValue` (In other words, it is a lot like `accumulator = accumulator + currentValue`, which looks a lot like `total = total + num` in our iteration code).\n\nLet's go element by element in our array of [1,2,3,4,5]:\n\nBeginning:\naccumulator == 0\ncurrentValue == 1\n\nStep 1:\naccumulator == 1\ncurrentValue == 2\n\nStep 2:\naccumulator == 3\ncurrentValue == 3\n\nStep 3:\naccumulator == 6\ncurrentValue == 4\n\nStep 4:\naccumulator == 10\ncurrentValue == 5\n\nStep 5:\naccumulator == 15\nAt this point `reduce` returns the value in `accumulator`",
       "line": 37
     }
