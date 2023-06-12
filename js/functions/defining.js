@@ -67,8 +67,7 @@ const anonFuncNoParams = () => {
 }
 
 const anonFuncOneParam = x => {
- return x
-}
+ return x}
 
 const anonFuncTwoParams = (x, y) => {
   return x + y

@@ -38,17 +38,12 @@
     },
     {
       "file": "functions/scope.js",
-      "description": "Here we declare a block scoped variable x. After making this declaration, any time we use x within this block (the area delimited by the curly braces) will reference this variable (not the parameter, not the globally scoped x) ",
+      "description": "Here we declare a block scoped variable z. After making this declaration, any time we use z within this block (the area delimited by the curly braces) will reference this variable  ",
       "line": 11
     },
     {
       "file": "functions/scope.js",
-      "description": "Printing out x here will therefore show the number 7",
-      "line": 12
-    },
-    {
-      "file": "functions/scope.js",
-      "description": "Now the value of x is 6 again. That is because it is not refering to the x within the block. In fact, we cannot refer to it any more; we are outside of the scope it was declared in (the if statement block)",
+      "description": "`z` cannot be accessed outside of the if block!",
       "line": 14
     },
     {
