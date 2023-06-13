@@ -1,0 +1,85 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "domManipulation",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "The DOM is the underlying structure of an HTML page. It consists of nodes arranged in a tree structure. What we'll be doing in this section is learning ways of finding nodes on this tree as well as adding and removing nodes"
+    },
+    {
+      "file": "dom/index.html",
+      "description": "This is the HTML document we'll be working with. Take a minute to study the structure, and also open it in a browser to see what it looks like when rendered.",
+      "line": 1
+    },
+    {
+      "file": "dom/index.html",
+      "description": "As a reminder, the `class` and `id` are HTML attributes that we can add inside of a tag. The `class` attribute is typically used for CSS styling. The `id` attribute is used to give a unique identifier to an element.",
+      "line": 12
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "We can get the node with an id with the `getElementById` function. This function is only ever called on `document`. Run this and all of the code in this file in the browser console to see what the variable looks like. ",
+      "line": 3
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "Similarly to the above, we can get one of the sections by its id",
+      "line": 5
+    },
+    {
+      "file": "dom/index.html",
+      "description": "This div is selected when we run the code from the previous step",
+      "line": 14
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "`querySelector` is also used to get HTML elements, but is more flexible than `getElementById`\n- it can be called on any element, not just `document`. Notice that here we are calling it on the ch1 constant.\n- it is not limited to using an id. Here we are passing it the name of a CSS class\n\nNote that `querySelector` returns the **first** element it finds, starting from the element you called it on.",
+      "line": 7
+    },
+    {
+      "file": "dom/index.html",
+      "description": "This is the element found by our `querySelector`, since it is the first element in the document that has the `.section` class",
+      "line": 14
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "`querySelectorAll` is similar to `querySelector`, but returns every matching element it can find again, starting from the element you called it on. Here we called it on `document`, so it will find every element with the `.section` class attribute on the page",
+      "line": 10
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "We can also pass the names of HTML tags to `querySelector`, since they are valid CSS selectors (https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors)",
+      "line": 11
+    },
+    {
+      "file": "dom/index.html",
+      "description": "`firstH1` is now this element",
+      "line": 13
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "If you console.log `allSections`, you'll notice that it includes the \"Abandoned Section\" with the id '4.1'. What if we only want to get sections that are within chapters? `querySelectorAll` lets us do this. On this line, we are chaining together two selectors. First we get all chapters, then from the chapters we get the sections. Run this line to verify it works",
+      "line": 13
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "Just to reiterate, `querySelectorAll` starts looking from the element you call it on. So calling from ch1 instead of `document` only gives us the sections in Chapter 1, not all of the sections",
+      "line": 16
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "What can we do with these elements once we've selected them? We could change their styling for example. Uncomment this line, save, and refresh the page to see what happens. ",
+      "line": 19
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "`querySelectorAll` returns a `NodeList`. While we can't call `map` and `filter` on this, we can call `forEach` to iterate over the elements. Here we want to change the periods in Chapter 1 sections to dashes. While we are using the `replace` function correctly, the result is not appearing",
+      "line": 21
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "The reason is because `replace` returns a **new** string and does not modify the current string. Therefore we must actually assign the return value from `replace` to where we want it to appear. Uncomment this line and refresh the page to see it working.",
+      "line": 23
+    }
+  ]
+}
