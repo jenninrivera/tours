@@ -1,0 +1,29 @@
+{
+    "langs": [
+        {
+            "id":1,
+            "name":"APL",
+            "creator": "Iverson",
+            "year": 1966
+        },
+        {
+            "id":2,
+            "name":"Lisp",
+            "creator": "McCarthy",
+            "year": 1966
+        },
+        {
+            "id":3,
+            "name":"Forth",
+            "creator": "Moore",
+            "year": 1970
+        },
+        {
+            "id":4,
+            "name":"TLA+",
+            "creator": "Lamport",
+            "year": 1999
+        }
+    
+    ]
+}

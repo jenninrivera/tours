@@ -55,6 +55,31 @@
       "file": "basics/iteration.js",
       "description": "The for/of loop lets us iterate over the items in an array directly, without having to keep track of an index and use the array[index] notation. We also don't have to specify a termination condition, since it will end automatically once all of the items in numbers have been iterated over. So the first time the loop runs, num will equal the first element of numbers (which is 1). The second time, num will be reassigned to the second element, and so on",
       "line": 24
+    },
+    {
+      "file": "basics/iteration.js",
+      "description": "Let's get some more practice with the for/of loop. Now we'll sum only the odd numbers in the array",
+      "line": 30
+    },
+    {
+      "file": "basics/iteration.js",
+      "description": "We have to put an if statement with a condition testing if a number is odd",
+      "line": 31
+    },
+    {
+      "file": "basics/iteration.js",
+      "description": "Next we'll look at nested loops. For each iteration of the outer loop, the inner loop complete every iteration. ",
+      "line": 39
+    },
+    {
+      "file": "basics/iteration.js",
+      "description": "So this log statement will run for every letter in letters, and the whole inner loop will run for each number in numbers. In other words, the total number of times the log statement will run is the length of numbers multiplied by the length of letters.",
+      "line": 41
+    },
+    {
+      "file": "basics/iteration.js",
+      "description": "This code shows the above rewritten as a forEach. It has exactly the same behavior",
+      "line": 46
     }
   ],
   "ref": "master"
