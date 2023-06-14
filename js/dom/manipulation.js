@@ -22,5 +22,10 @@ ch1Sections.forEach(sec => sec.innerText.replace('.','-'))
 
 //ch1Sections.forEach(sec => sec.innerText = sec.innerText.replace('.','-'))
 
+const img = document.createElement('img')
+img.src = "https://i.imgur.com/2BhRYY6.jpeg"
+firstH1.appendChild(img)
+img.remove()
+
 
 

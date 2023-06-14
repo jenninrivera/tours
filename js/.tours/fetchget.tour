@@ -1,0 +1,95 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "fetchGet",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "The `fetch` function is how we interact with the outide world with Javascript. Before we were manually adding data to a page, but what if we want external data? `fetch` allows us to get data from these sources which we can then use within our Javascript program."
+    },
+    {
+      "file": "http/db.json",
+      "description": "This file contains the data we want to get into our webpage. It's a json file containing a single object, which contains one key called \"langs\" whose value is a list of json objects. Before we move on, navigate to this folder (tours/js/http/) and run `json-server db.json --watch`\n\nYou should now be able to navigate to `localhost:3000/langs` in your browser to see this file. All json-server is doing is creating a local test server that we can use as an \"external\" source",
+      "line": 1
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "If you've successfully started json-server, calls to fetch will work without throwing an error. For a `GET` request, all we need is the url of the resource we want to retrieve.",
+      "line": 4
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "Since network traffic takes time, we don't immediately get our response. Instead, we get a placeholder called a `Promise` which is simply code that runs once it gets the _promised_ data. Whenever you see `.then`, it's part of a Promise ",
+      "line": 5
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "The first thing we get is a response object. Don't worry about the contents of this, but we will be passing it to the next `.then` statement\n",
+      "line": 7
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "Instead of logging the response, we can call `.json()` on it. We won't actually get the json though, this function is still just a Promise",
+      "line": 15
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "A little bit about how `.then` chains work (by \"chains\" I mean `.then().then()`): The next then in the chain takes the return value of the previous then statement and passes it as the argument to the anonymous function in next then statement",
+      "line": 19
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "So because we returned 5 from the previous then, (remember implicit returns?), randomName will get the value 5, which we then print out",
+      "line": 20
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "Instead of adding a bunch of code inside the `.then` statement, we can define a separate function to keep our code a bit more orderly",
+      "line": 22
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "This code is very similar to our code in events.js, I won't cover it in detail.",
+      "line": 23
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "We'll just jump briefly to the HTML this is referring to",
+      "line": 24
+    },
+    {
+      "file": "http/index.html",
+      "description": "This is the element we are selecting, as you can see it's just an empty div. We'll be appending element to it in our function",
+      "line": 12
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "Once the `.json` promise is resolved, we can pass it to the next `.then`. What is this json again? It's an array of json objects. We can then iterate over these elements with a forEach and do something with each of them",
+      "line": 34
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "The `.catch` statement runs if something goes wrong with the fetch. You'll see this error print if you forget to start json-server for example. If nothing goes wrong, this code won't run ",
+      "line": 35
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "We can also get just one object from our resource instead of the complete list. Here we are getting the first object",
+      "line": 37
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "Notice that we have renamed `langs` to `lang` since we are no longer dealing with a list, but with a single object. We **cannot** call `.forEach` on a single object, so that code has also been removed",
+      "line": 39
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "If you open up the console, you'll see that this code ran before all of the fetches. This is because fetch is asynchronous, so we have to wait some period of time before the Promises are resolved. Within that time frame, this console.log is run and the text is displayed, so despite the fact that it appears near the end of the code, it will execute first",
+      "line": 41
+    },
+    {
+      "file": "http/fetchGet.js",
+      "description": "We aren't limited to running `json-server` on localhost. We can actually use fetch to get any resource on the internet (for now ones that don't need a password). Here is a sample API you can explore, you are also encouraged to look into other API's for your own projects.",
+      "line": 50
+    }
+  ]
+}

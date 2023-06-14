@@ -80,6 +80,26 @@
       "file": "dom/manipulation.js",
       "description": "The reason is because `replace` returns a **new** string and does not modify the current string. Therefore we must actually assign the return value from `replace` to where we want it to appear. Uncomment this line and refresh the page to see it working.",
       "line": 23
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "Finally, let's deal with adding and removing elements! Here we create an element using `createElement`. Note that `createElement` is only called on `document`. We pass it the name of the HTML tag we want to create as a string",
+      "line": 25
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "Now we can set any attributes of our new element. the `<img>` tag has a `src` attribute, and we can set it with the above code",
+      "line": 26
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "We can call `appendChild` on any element to add our tag to that part of the DOM, here we are calling it on the header we retrieved earlier.",
+      "line": 27
+    },
+    {
+      "file": "dom/manipulation.js",
+      "description": "This removes the element we just added. Comment this line out and refresh page in order to see the image that we added!",
+      "line": 28
     }
   ]
 }
