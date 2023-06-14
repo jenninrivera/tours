@@ -1,0 +1,110 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "domEvents",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "Events are what we use to make HTML pages interactive. There are dozens of events, but the only ones we care about for now are `click`, which happens when a mouse button is clicked, and `submit`, which happens when a form is submitted. "
+    },
+    {
+      "file": "dom/form.html",
+      "description": "Just a quick note: the `defer` keyword simply ensures that our script loads when the DOM is fully parsed so we don't get errors",
+      "line": 5
+    },
+    {
+      "file": "dom/form.html",
+      "description": "Familiarize yourself with the structure of the form element",
+      "line": 8
+    },
+    {
+      "file": "dom/events.js",
+      "description": "The first thing we are doing is getting the form element into a variable, just like we did in the DOM manipulation section. ",
+      "line": 4
+    },
+    {
+      "file": "dom/events.js",
+      "description": "Next we are calling `addEventListener` on the form element. We can call this function on any element that we can to make interactive. `addEventListener` takes two arguments: the name of the event as a string (here it is 'submit') and a callback function (here we are defining it directly as an arrow function. We could also use a named function that we defined earlier). ",
+      "line": 7
+    },
+    {
+      "file": "dom/events.js",
+      "description": "Note that the arrow function has the parameter `e`. This is because every event tries to pass an event object to the callback. You don't have to do anything to make this happen except define a parameter (usually called `event` or `e`). Here, we are calling `preventDefault()`, which stops the default behavior of the form (refreshing the page) from happening",
+      "line": 8
+    },
+    {
+      "file": "dom/events.js",
+      "description": "Let's get some more practice with creating and adding elements. Here we are creating a `<p>` element",
+      "line": 10
+    },
+    {
+      "file": "dom/events.js",
+      "description": "We set the text of the `<p>` element to the value that was typed in the form. This value is retrieved by first getting the event's `target` (the element that the event was triggered on) and a property called `formName`, and its property called `value`. Go to the next step to see where we got these last two from",
+      "line": 11
+    },
+    {
+      "file": "dom/form.html",
+      "description": "Here is `formName`, the identifier for this text field. We then get the text itself with the `value` field",
+      "line": 10
+    },
+    {
+      "file": "dom/events.js",
+      "description": "Next we get a div with the id `greeting`. With `querySelector`, we can get an element by id by prefixing it with the # sign",
+      "line": 12
+    },
+    {
+      "file": "dom/events.js",
+      "description": "Remember that we can add an event listener to any element, ones that we've created are no exception. Here we will listen for the `click` event (i.e. a mouse click) on the `<p>` element we just created, again using an arrow function with the parameter e, which will be the event object",
+      "line": 13
+    },
+    {
+      "file": "dom/events.js",
+      "description": "What we want to do when the element is clicked is to change its color. If we were to simply write `e.target.style.color = 'red`, then the color would change to red on the first click, but never change back. Since we want it to change every time we click, we need some extra logic",
+      "line": 14
+    },
+    {
+      "file": "dom/events.js",
+      "description": "We create this boolean variable (sometimes called a _flag_) in order to track which color is toggled. In other words, we want to do one thing when `toggle` is true and another thing when `toggle is false`. Notice that we are declaring this in the **global** scope. If we declare it in our callback, it will be reset every time the callback is run",
+      "line": 2
+    },
+    {
+      "file": "dom/events.js",
+      "description": "Here we introduce the **ternary operator**. It's just like an if statement, but we can't include multiple statements. The syntax is `condition ? executesIfTrue : executesIfFalse`. Here we are checking if the `innerText` of the `<p>` element equals \"test\" (remember that we access the element that triggered the event with `e.target`). If it **does** equal \"test\" we set the color to red. If it **does not** equal \"test\", we set the color to magenta\"",
+      "line": 15
+    },
+    {
+      "file": "dom/events.js",
+      "description": "Remember that we have to change the value of `toggle`, or else we will keep executing the if branch every time!",
+      "line": 18
+    },
+    {
+      "file": "dom/events.js",
+      "description": "And we must do the same in the else branch",
+      "line": 21
+    },
+    {
+      "file": "dom/events.js",
+      "description": "Finally, we append the p element we created to the `greeting` div",
+      "line": 24
+    },
+    {
+      "file": "dom/events.js",
+      "description": "We'll do one more `addEventListener` for practice. We are adding click listener to the header element. Notice that we don't have the e or event parameter. It's actually not mandatory to have one, but there is also no downside to including it.",
+      "line": 28
+    },
+    {
+      "file": "dom/events.js",
+      "description": "As a reminder, we were able to get the header element by using `querySelector` to get the first `h2` element in the document (notice there's no period or #, since we are just selecting an HTML tag)",
+      "line": 26
+    },
+    {
+      "file": "dom/events.js",
+      "description": "Here we are using a ternary statement instead of an if statement to handle the color changing logic. It's almost the same as before, but we cannot set the toggle variable here.",
+      "line": 29
+    },
+    {
+      "file": "dom/events.js",
+      "description": "Instead we can set it outside of the ternary. Since we don't know whether it is currently true or false, we cannot set it directly to `true` or `false` as we did above. Instead, we simply set it to the opposite (using the ! operator) of what it is, achieving the same goal",
+      "line": 31
+    }
+  ]
+}

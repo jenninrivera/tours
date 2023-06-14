@@ -6,7 +6,7 @@ const form = document.getElementById('formId')
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    console.log(e)
+    
     const p = document.createElement('p')
     p.innerText = e.target.formName.value
     const greeting = document.querySelector('#greeting') 
