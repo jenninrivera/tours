@@ -5,7 +5,7 @@
       "name": "APL",
       "creator": "Iverson",
       "year": 1966,
-      "users": 999999
+      "users": 10000000
     },
     {
       "id": 2,
@@ -90,13 +90,6 @@
       "creator": "Backus",
       "users": 0,
       "id": 13
-    },
-    {
-      "name": "Fortran",
-      "year": "1957",
-      "creator": "Backus",
-      "users": 0,
-      "id": 14
     }
   ]
 }

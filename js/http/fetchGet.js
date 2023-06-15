@@ -38,7 +38,8 @@ fetch("http://localhost:3000/langs/1")
     .then(response => response.json())
     .then(lang => addLang(lang))
     .catch(error => console.log(`printing the error: ${error}`))
-    console.log("This runs before the fetch")
+
+console.log("This runs before the fetch")
 
 
 
@@ -48,5 +49,5 @@ fetch("http://localhost:3000/langs/1")
 
 
  fetch("https://www.dnd5eapi.co/api/spells/silence")
-.then(response => response.json())
-.then(json => console.log(json))
+    .then(response => response.json())
+    .then(json => console.log(json))

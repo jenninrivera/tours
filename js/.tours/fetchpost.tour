@@ -1,0 +1,115 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "fetchPost",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "We use a POST request in order to add things to our database. For example, a signup page on a website will make a POST request when someone hits submit. This ensures that the data doesn't just live on the browser, but can be retrieved at any time."
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "This is a block comment, if you remove this and the one below, the commented code will run every time we refresh the page",
+      "line": 14
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Just as with a GET request, we call the `fetch` function and pass the URL as a string as the first parameter. The second parameter is a javascript object that contains the request parameters. We'll look at those next",
+      "line": 15
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "The first field in the parameters object is `method`, which has the value of the method we wish to use (POST)",
+      "line": 10
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Next we are telling the server what kind of data we are sending. You don't have to understand this line, just memorize that this part is needed to complete the request",
+      "line": 11
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Finally we have the body. This is the actual content we want to upload to the server. Notice that we are calling this `JSON.stringify` function. This is because we cannot directly upload a Javascript object, we can only upload strings.",
+      "line": 12
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Here is the object that we are uploading, just a normal JSON object",
+      "line": 8
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "You won't always be defining the parameters as a variable, we can put this object directly in the fetch function call: \n```js\nfetch('http://localhost:3000/langs',{\n    method: 'POST',\n    headers: {'Content-Type':'application/json'},\n    body: JSON.stringify(anyJSONobject)\n})\n```",
+      "line": 13
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Just like with the GET request, we get a reponse and covert it to JSON",
+      "line": 16
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "The JSON returned will be the exact object we posted. This will be useful if we want to do render the newly posted info on the page for example.",
+      "line": 17
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Let's look at a POST that's not just taking hardcoded data, but instead gets data from a user through a form",
+      "line": 21
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "We call `addEventListener` on the form and pass in an anonymous function",
+      "line": 22
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Remember that we must call this function to prevent the page from refreshing",
+      "line": 23
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "In these next lines we are getting the values from the form. Pay attention to the format: they all start with e.target followed by the name given in the input tag followed by value",
+      "line": 24
+    },
+    {
+      "file": "http/form.html",
+      "description": "For example, the will call event.target.creator because \"creator\" is the name we gave to this input box in the HTML ",
+      "line": 13
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Now we construct an object with the values we just got from the form",
+      "line": 29
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "We could have also done `\"name\": e.target.name.value` instead, but we are going step by step here ",
+      "line": 30
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Remember that the object we create must match the format in our db.json. You may have noticed that we never have to explicitly give an id. This is because json-server creates new id's automatically for us when we send a POST, so you never have to worry about keeping track of this.",
+      "line": 34
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Now we are calling fetch as we did earlier. Notice that the URL is `/langs` not `/langs/1` or any other number. This is because POST is like adding an item to a list, not changing a specific item in the list",
+      "line": 36
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Here are the parameters as before, but we are passing in the newLangObject we just created from the form data",
+      "line": 39
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Here's where we'll actually use the response (which is going to be the same object we sent, plus the id that json-server generated). Once the Promise resolves we call addLangToPage with the json data we recieved",
+      "line": 41
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "This function is doing the standard `createElement` and `appendChild` that we've seen in the DOM manipulation sections, so review that if this is not clear",
+      "line": 49
+    }
+  ]
+}
