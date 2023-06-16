@@ -60,6 +60,8 @@ const patchRequestParameters = {
 
 
 //fetch("http://localhost:3000/langs/1",patchRequestParameters)
+//    .then(response => response.json())
+//    .then(data => console.log(data))
 
 
 

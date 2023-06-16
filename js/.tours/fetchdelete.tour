@@ -1,0 +1,15 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "fetchDelete",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "DELETE requests allow us to remove objects from our database. An important thing to keep in mind going forward is that the deletion is done immediately and is permanent"
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Here is the form that a DELETE request takes. To make this work, uncomment the line and replace `fillInANumber` with one of the id numbers in db.json and refresh the page (or copy and paste it into the browser console). Notice that we are including the request parameters directly in the fetch function call this time. It is again just an object, but this time with only a method field (no body field, no headers field). if you include some then statements to console log the response, you'll see that it is just an empty object (i.e. {})\n\nJust like PATCH, DELETE only works when we provide an id, so sending a DELETE to /langs will not work, it must be /langs/1 or some othe rnumber",
+      "line": 68
+    }
+  ]
+}

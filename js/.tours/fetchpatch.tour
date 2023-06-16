@@ -1,0 +1,45 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "fetchPatch",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "PATCH requests are used to update a field or set of fields in a single object (so for our example, we wouldn't make a PATCH request to /langs but to /langs/1 or any other id that is present). A use case for this might be updating likes on a post or updating a user's email address."
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "If you uncomment this line and refresh the page, the POST request here will go through and the 1st object will be updated. Let's look at the parameters to see how this happens",
+      "line": 62
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "As with POST, we need to specify our http verb as a string",
+      "line": 56
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "The headers field is exactly the same",
+      "line": 57
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Just as in our POST, we need to to covert the JSON object we wish to send into a string. Sending a plain javascript object will result in a bad request error. Next we'll examine the object we're sending. ",
+      "line": 58
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Notice that this object does not have every field like the POST request, only the field we want to change. After posting this object, the users field of the object we are updating will have the value 999999 and all other fields will remain the same. So PATCH **does not** change the other fields, only the ones we specify. It also does not create new objects.",
+      "line": 53
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Just as a reminder, the request parameters are just another Javascript object. We don't have to put it in a variable, and in fact usually we'll just put the object directly in the fetch function call.",
+      "line": 59
+    },
+    {
+      "file": "http/fetchPostPatchDelete.js",
+      "description": "Finally, the server will respond to the PATCH request by sending us back the **complete** object with the update applied",
+      "line": 64
+    }
+  ]
+}
