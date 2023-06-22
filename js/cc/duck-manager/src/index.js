@@ -1,7 +1,13 @@
 
+const duckDisplayLikesButton = document.querySelector('#duck-display-likes')
+let currentDuck
 fetch('http://localhost:3000/ducks')
     .then(response => response.json())
-    .then(duckList => duckList.forEach(duck => addDuckToNav(duck)))
+    .then(duckList => {
+        duckList.forEach(duck => addDuckToNav(duck))
+        currentDuck = duckList[0]
+        showDuckDetails(currentDuck)
+    })
     .catch(error => console.log(`Error with GET request to /ducks: ${error}`))
 
 function addDuckToNav(duck) {
@@ -13,19 +19,17 @@ function addDuckToNav(duck) {
     duckNav.appendChild(duckImgElement)
 
     duckImgElement.addEventListener('click', () => {
-        const duckDisplayImg = document.querySelector('#duck-display-image')
-        const duckDisplayName = document.querySelector('#duck-display-name')
-        const duckDisplayLikesButton = document.querySelector('#duck-display-likes')
-
-        duckDisplayImg.src = duck.img_url
-        duckDisplayName.innerText = duck.name
-        duckDisplayLikesButton.innerText = duck.likes + " Likes"
-
-        duckDisplayLikesButton.addEventListener('click', () => {
-            duck.likes++
-            duckDisplayLikesButton.innerText = duck.likes + " Likes"
-        })
+        showDuckDetails(duck)
     })
+}
+function showDuckDetails(duck) {
+    const duckDisplayImg = document.querySelector('#duck-display-image')
+    const duckDisplayName = document.querySelector('#duck-display-name')
+    currentDuck = duck
+    duckDisplayImg.src = duck.img_url
+    duckDisplayName.innerText = duck.name
+    duckDisplayLikesButton.innerText = duck.likes + " Likes"
+
 }
 const newDuckForm = document.querySelector('#new-duck-form')
 newDuckForm.addEventListener('submit', (e) => {
@@ -39,4 +43,9 @@ newDuckForm.addEventListener('submit', (e) => {
     }
     addDuckToNav(newDuckObject)
 
+})
+
+duckDisplayLikesButton.addEventListener('click', () => {
+    currentDuck.likes++
+    duckDisplayLikesButton.innerText = currentDuck.likes + " Likes"
 })
