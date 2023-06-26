@@ -38,11 +38,6 @@
     },
     {
       "file": "cc/duck-manager/README.md",
-      "description": "We can see the word \"fetch\" here, that should give us a hint about the function will be using. And since it says \"ducks\" (a plural word), we know that we should be getting all items, not just one. We'll also make a note of the `duck-nav`, since that should be referring to something in the HTML file.",
-      "line": 13
-    },
-    {
-      "file": "cc/duck-manager/README.md",
       "description": "Let's make sure we have defer in our script tag!",
       "line": 15
     },
@@ -52,174 +47,179 @@
       "line": 5
     },
     {
-      "file": "cc/duck-manager/src/index.js",
-      "description": "Let's start with the fetch request. Remember that we don't need extra parameters for a GET request, just the URL. And since the deliverable wants us to get ALL of the ducks, we have /ducks instead of /ducks/1 ",
-      "line": 2
+      "file": "cc/duck-manager/README.md",
+      "description": "We can see the word \"fetch\" here, that should give us a hint about the function will be using. And since it says \"ducks\" (a plural word), we know that we should be getting all items, not just one. We'll also make a note of the `duck-nav`, since that should be referring to something in the HTML file.",
+      "line": 13
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "We get the json from the response as usual",
-      "line": 3
-    },
-    {
-      "file": "cc/duck-manager/src/index.js",
-      "description": "Remember what the json looks like in db.json: it's a list of objects (duck objects in our case). So we'll name the json data that we get `duckList`. Since it's a list, we can call `forEach` and iterate over the elements. Remember the deliverable: we want to add each duck image to the duck-nav. Let's take each duck object and pass it to a function that adds it to the proper place on the page called `addDuckToNav`",
+      "description": "Since we are fetching **all** the ducks, we use this url. We have the base url of `http://localhost:3000` followed by the resource name `/ducks`. ",
       "line": 4
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "Here is our function signature: we've defined a function `addDuckToNav` that takes a single duck (not a list of ducks!)",
+      "description": "Next we get the json data from the response Promise. Remember that Promises are _asynchronous_ and therefore the code inside these `then` statements will execute after code outside (review function scope if you are not sure what is inside and what is outside in this case)",
+      "line": 5
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "Once the above promises are resolved, we have the contents of db.json, which as a reminder is a **list** of duck objects",
+      "line": 6
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "Now we loop through the list of ducks and add each one to the HTML. Since we are doing this in a separate function, let's take a look at that next",
       "line": 7
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "First let's actually get the duck-nav so that we will be able to add things to it later.",
-      "line": 8
-    },
-    {
-      "file": "cc/duck-manager/src/index.js",
-      "description": "What do we want to add to the nav? An image. So let's first create an img element.",
-      "line": 9
-    },
-    {
-      "file": "cc/duck-manager/src/index.js",
-      "description": "Next we need to get the url from the duck object. We have to access the `img_url` field. ",
-      "line": 10
-    },
-    {
-      "file": "cc/duck-manager/src/index.js",
-      "description": "Next we set the src attribute of the img element we created to the duck image url we just extracted from the duck object",
-      "line": 12
-    },
-    {
-      "file": "cc/duck-manager/src/index.js",
-      "description": "Finally we append the img element to the nav, and this completes the first deliverable. Make sure you understood the process here before moving on",
+      "description": "Remember the difference between parameters and arguments. `duck` is a parameter; its value is set equal to the argument supplied by the caller (which we named `duckToBeAdded` in the forEach statement above). So behind the scenes it's like we declared a variable: `let duck = duckToBeAdded`",
       "line": 13
     },
     {
-      "file": "cc/duck-manager/README.md",
-      "description": "Now read through deliverable two again (you did read it once at the beginning, right?) and make sure you understand what it is asking you to do.",
-      "line": 17
-    },
-    {
-      "file": "cc/duck-manager/README.md",
-      "description": "This one is a bit more complicated than the first, so let's break it down:\n- We see something about doing something when a user clicks: that means we'll want to be calling `addEventListener` somewhere\n- We want to display data from the duck object that was clicked on inside the duck-display div.\nLet's take a look at this div to see what we'll have to do with it",
-      "line": 19
-    },
-    {
-      "file": "cc/duck-manager/index.html",
-      "description": "We'll display duck.name here (make a note of the id)",
-      "line": 19
-    },
-    {
-      "file": "cc/duck-manager/index.html",
-      "description": "And make a note of these other id's.",
-      "line": 23
-    },
-    {
-      "file": "cc/duck-manager/README.md",
-      "description": "Also the README gives us a nice example of what this div will look like if we did everything correctly",
-      "line": 31
-    },
-    {
-      "file": "cc/duck-manager/README.md",
-      "description": "One last thing to note in this deliverable: every time a user clicks on a duck image, the duck-display div gets updated with that duck's info.",
-      "line": 33
+      "file": "cc/duck-manager/src/index.js",
+      "description": "The first step is to get the html element that we will be adding the ducks to. **REMEMBER TO CONSOLE LOG THE RESULTS**. You don't want to write 20 more lines assuming that `duckNav` okay, only to find that you have a typo in your queryselector and `duckNav` is actually null",
+      "line": 14
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "Let's go ahead and add an event listener. Why are we adding it to `duckImgElement`? Because the deliverable says that something must happen every time the user clicks one of the images we added to the duck-nav",
+      "description": "Next let's create an img element. This is the html element that will display the duck's image",
       "line": 15
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "In these lines we are simply getting the relevant elements from the HTML document. Go take a look at the HTML again if you are confused as to where these strings are coming from. (Reminder: when we want to get an element by id with querySelector, we need to have the # symbol before the name)",
+      "description": "Now we get the `img_url` string out of the duck object and assign it to a variable.",
+      "line": 16
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "Then we set the duckImgElement's src attribute to the url string we just got. ",
       "line": 18
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "First we set the src attribute of the img element that we selected.",
-      "line": 20
+      "description": "Finally we append the element we created to the nav element. This concludes the first deliverable.",
+      "line": 19
+    },
+    {
+      "file": "cc/duck-manager/README.md",
+      "description": "Read this deliverable carefully before beginning.",
+      "line": 17
+    },
+    {
+      "file": "cc/duck-manager/README.md",
+      "description": "We see the word \"click\", so this means that we'll need an event listener. Make sure to note the information that we are asked to display in the duck-display element",
+      "line": 19
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "Next we set the text of the display name h2 element",
+      "description": "Here is our event listener. Notice that we are not including a paramater for the event. In this case we don't need it, but it wouldn't cause an error to include it.",
       "line": 21
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "Finally we set the text of the button. Notice that we are including the \" Likes\" string so that the text isn't just a plain number. This concludes the second deliverable. Again, make sure you understand everything going on here before moving to the next one.",
+      "description": "We could write the code directly in this event handler, but instead we are passing the `duck` object to a new function that we will write. Let's take a look at it",
       "line": 22
     },
     {
-      "file": "cc/duck-manager/README.md",
-      "description": "As before, reread the deliverable and understand what it wants to do.",
-      "line": 35
-    },
-    {
-      "file": "cc/duck-manager/README.md",
-      "description": "Ok, we see the word \"clicked\" again, so we'll be writing another event listener. It's going to change the value of a duck's likes by one (i.e. increment). We also want to ensure that the format is correct (it should be \"3 Likes\" not just \"3\"). Since we are told that our change must not be lost when we click a new duck, that tells us that it will not be enough to simply change the text of the HTML element, since it is overwritten by the previous event listener we wrote for deliverable two ",
-      "line": 37
-    },
-    {
       "file": "cc/duck-manager/src/index.js",
-      "description": "The deliverable says to add an event listener to the button, so that is exactly what we'll do here. Notice that we don't need to declare a parameter for the event, since we won't be using it.",
-      "line": 24
-    },
-    {
-      "file": "cc/duck-manager/src/index.js",
-      "description": "This increments the likes in the current duck object. Why are we incrementing duck.likes instead of getting the button text and incrementing the number in the text? Because that number ultimately comes from duck.likes, so if we don't change duck.likes directly, then the change would be lost when we click on a different duck",
+      "description": "Remember that the `duck` parameter here is different from the duck parameter in the previous function, even though they have the same name. This is due to how function level scoping works",
       "line": 25
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "Finally, we have to actually update the text of the element with the new value. You'll notice this line is the same as above. This concludes the third deliverable",
-      "line": 26
-    },
-    {
-      "file": "cc/duck-manager/README.md",
-      "description": "Read over the last deliverable again before starting",
-      "line": 39
-    },
-    {
-      "file": "cc/duck-manager/README.md",
-      "description": "Now we are getting into forms. Let's break it down:\n1. We need to get the form with querySelector\n2. We need to add a submit event listener to the form element\n3. We need to get the data from the form\n4. We need to use this data to create a new duck object\n5. We need to add this duck object to the duck-nav div\n\nThis may look like a lot, but actually we've already written a function for the last step!",
-      "line": 41
+      "description": "First we get the elements we are supposed to add details to. Again, console log each of these to make sure you've selected correctly",
+      "line": 27
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "This is the first step we outlined.",
+      "description": "Next we set the appropriate attributes of each element to the corresponding value in the duck object. For example, we get the ducks name by typing `duck.name`. (Check in the file where `duckDisplayLikesButton` is declared!)  This concludes the second deliverable",
       "line": 30
     },
     {
-      "file": "cc/duck-manager/src/index.js",
-      "description": "This is the next step. Notice that we need the `e` parameter this time.",
-      "line": 31
+      "file": "cc/duck-manager/README.md",
+      "description": "Read the text of the deliverable carefully",
+      "line": 35
+    },
+    {
+      "file": "cc/duck-manager/README.md",
+      "description": "Like above, the word \"click\" tells us we will need an event listener. We also need a way to make sure that the likes don't reset when we click on a different duck. Let's address that problem first.",
+      "line": 37
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "As usual we call `preventDefault()` to prevent the page from reloading",
+      "description": "First we are going to declare a variable that will contain whichever duck is currently being displayed. We're making this global so that we can access it from different functions.",
+      "line": 3
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "The first function we'll access the global from is `showDuckDetails`. All we are doing here is setting the global variable `currentDuck` to the `duck` parameter. ",
       "line": 32
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "Now we begin getting the form values. Notice that we have to use the bracket syntax instead of the dot syntax for getting the value. This is because Javascript doesn't allow us to say `e.target.duck-name-input` due to the dashes in the name. **THIS IS IMPORTANT**",
-      "line": 33
+      "description": "Next we want to increment the likes of the currentDuck when the like button is pressed. We can directly modify the likes field for the currentDuck. Since we do this inside an event listener, this only happens when the button is clicked.",
+      "line": 50
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "In the same way we can get the URL that was entered ",
-      "line": 34
+      "description": "Finally, we have to remember to update the button text to reflect the new number of likes. This concludes the third deliverable.",
+      "line": 51
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "We have the data, now let's make an object. Remember that creating an object starts with the curly braces {} and then has the key name, a colon, then the value. Each of these key-value pairs is separated by a comma. We've gotten the values we want from the form, so we can just put them in. Notice that we set likes to 0. This is because 0 is our _default value_ for likes.",
+      "description": "One last thing: if we want to display the first duck when the page loads, we need to set currentDuck to the first duck in the duckList",
+      "line": 8
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "And then call `showDuckDetails` with that duck",
+      "line": 9
+    },
+    {
+      "file": "cc/duck-manager/README.md",
+      "description": "Reread the final deliverable before continuing (you did read it through once already, right?)",
+      "line": 39
+    },
+    {
+      "file": "cc/duck-manager/README.md",
+      "description": "It's asking for a form submission, so we know we'll need a form event listener. It's also asking for a new duck to be added to duck-nav, so we know we'll need to create a duck object from the values that the user enters in the form",
+      "line": 41
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "Here is the form element that we need. Don't forget ot console log it",
+      "line": 35
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "This time we need a 'submit' event, and we need to pass a parameter (in this case `e`) to get the event.",
+      "line": 36
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "We always start our form listeners by calling `preventDefault()` to prevent the page from refreshing when the form is submitted",
+      "line": 37
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "First we get the name that the user entered. Notice that we are using bracket notation instead of dot notation. This is because the input tag id has dashes in it. When in doubt you can always use bracket notation. Put a console log after this to make sure we are getting the expected value.",
+      "line": 38
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "Similarly we can get the url. Keep in mind that all values retrieved from these form input fields are strings.",
       "line": 39
     },
     {
       "file": "cc/duck-manager/src/index.js",
-      "description": "As stated at the beginning of this deliverable, we've actually already defined a function to add a duck object to the duck-nav! We can just call this function and pass in the `newDuckObject` we just created. This concludes the code challenge! Don't worry if everything doesn't make sense right away, it may take several repetitions before it sticks",
-      "line": 40
+      "description": "Next we create an object with the values we just obtained. Note that the key names are the same as the ones we find in the db.json file. Also note that we don't need to include an id field; json-server takes care of that for us. Lastly, notice we are setting likes to a default value of 0.",
+      "line": 44
+    },
+    {
+      "file": "cc/duck-manager/src/index.js",
+      "description": "Finally, we can add our new duck to the page. Thankfully, we defined a function to do exactly this, or else we'd have to duplicate the code from before. This concludes the final deliverable",
+      "line": 45
     }
   ]
 }

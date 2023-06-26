@@ -25,10 +25,11 @@ function addDuckToNav(duck) {
 function showDuckDetails(duck) {
     const duckDisplayImg = document.querySelector('#duck-display-image')
     const duckDisplayName = document.querySelector('#duck-display-name')
-    currentDuck = duck
     duckDisplayImg.src = duck.img_url
     duckDisplayName.innerText = duck.name
     duckDisplayLikesButton.innerText = duck.likes + " Likes"
+    
+    currentDuck = duck
 
 }
 const newDuckForm = document.querySelector('#new-duck-form')
