@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "state",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "State is like a global variable for a component. Whenever we need to keep track of a value in our application (a string, a list, a number, etc.)"
+    }
+  ],
+  "ref": "master"
+}
