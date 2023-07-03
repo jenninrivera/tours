@@ -1,4 +1,3 @@
-import Header from './components/Header.js'
 import Letter from './components/Letter.js'
 function App() {
 
