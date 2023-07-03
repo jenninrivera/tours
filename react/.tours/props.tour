@@ -7,92 +7,92 @@
       "description": "Props (short for properties) are parameters that we pass to our components. Props are how we pass information from a parent component to a child component."
     },
     {
-      "file": "props/src/App.js",
+      "file": "props-example/src/App.js",
       "description": "Familiarize yourself with the `letters` object; we will be passing this object from App to child components.",
       "line": 17
     },
     {
-      "file": "props/src/App.js",
+      "file": "props-example/src/App.js",
       "description": "Here is how we pass data to the Letter component. First we create a \"prop\" within the angle brackets with the name we want to give the prop, in this case `letter`. Remember that while components start with a capital letter, props start with a lowercase letter. Next we have an equals sign followed by {}. Remember that {} means that everything inside is interpreted as Javascript code. In this case we are referencing the constant `letter`, which causes the prop `letter` to get the value of the constant we defined above (remmeber that despite having the same name, the letter prop is in JSX and therefore distinct from the letter we defined in the Javascript). Notice that defining a prop is exactly the same as defining an HTML attribute (for example, id=\"id\").",
       "line": 21
     },
     {
-      "file": "props/src/components/Letter.js",
+      "file": "props-example/src/components/Letter.js",
       "description": "This time we have defined a component that takes a parameter (we call it `props` by convention). Remember that we defined a prop called `letter` when we used this component in the parent (App). React essentially tranforms\n```js\n<Letter letter={letter} />\n```\ninto\n```js\ncomponentArgument.letter = letter\nLetter(componentArgument)\n```\nSo essentially it puts the props you define into an object then calls your function with that object passed as an argument",
       "line": 3
     },
     {
-      "file": "props/src/components/Letter.js",
+      "file": "props-example/src/components/Letter.js",
       "description": "We should now have access to the `letter` property of the props parameter. Here we are using `console.assert`, which is similar to `console.log` but only prints the provided message if the condition **fails**. So in this case, `console.assert` will trigger if props.letter is null. Basically we only want to see this message if something goes very wrong: if we constructed our component properly in the parent this should **never** happen. If it does happen, we know where to start looking.",
       "line": 4
     },
     {
-      "file": "props/src/components/Letter.js",
+      "file": "props-example/src/components/Letter.js",
       "description": "We are \"calling\" the LetterInfo component in JSX syntax",
       "line": 7
     },
     {
-      "file": "props/src/components/Letter.js",
+      "file": "props-example/src/components/Letter.js",
       "description": "This time we have two props! Again, they are declared as if they are HTML attributes and the {} means that `props.letter.symbol` and `props.letter.isVowel` are interpreted as Javascript code. Remember that then this component is \"called\", these props are passed through like this:\n```js\nlet argumentObject = {}\nargumentObject.symbol = props.letter.symbol\nargumentObject.isVowel = props.letter.isVowel\nLetterInfo(argumentObject)\n```",
       "line": 9
     },
     {
-      "file": "props/src/components/Letter.js",
+      "file": "props-example/src/components/Letter.js",
       "description": "If we want to create many of the same component, we can use map (not forEach! map returns a new array but forEach does not). Remember that `props.letter.alphabets` is an array of strings (check the data in App.js).",
       "line": 13
     },
     {
-      "file": "props/src/components/Letter.js",
+      "file": "props-example/src/components/Letter.js",
       "description": "`key` is a special prop that we need when we create many of the same kind of component. It must be a unique value. In this case alphabet will work, but in a real application we'd probably use something like an object's id. Try taking out this prop and see what the error in the console is.",
       "line": 14
     },
     {
-      "file": "props/src/components/Letter.js",
+      "file": "props-example/src/components/Letter.js",
       "description": "Remember that `alphabet` as the name of the prop is distinct from `alphabet` as the Javascript function parameter that's being used within the {}",
       "line": 15
     },
     {
-      "file": "props/src/components/Letter.js",
+      "file": "props-example/src/components/Letter.js",
       "description": "Let's break down this line as well:\n- `word` is the name of the prop\n- It gets a value from the `props.letter.useage` object (check the data again if you don't remember what it looks like)\n  - The value it gets is from the key that matches the `alphabet` string. For example, if `alphabet` is \"latin\" then this expression will evaluate to \"Athens\"",
       "line": 16
     },
     {
-      "file": "props/src/components/LetterInfo.js",
+      "file": "props-example/src/components/LetterInfo.js",
       "description": "This time, instead of giving the parameter the name `props`, we are **destructuring** the object that is passed in. Destructuring is just a way of extracting values from an object and assigning them to variables. So if we have an object `obj` that looks like {a:1, b:2} and we want to get the values, normally we would do this:\n```js\nlet a = obj.a\nlet b = obj.b\n```\nWith destructuring, we can do:\n```js\nlet {a, b} = obj\n```\nThis equivalent to the first way. So in this component we can use symbol and isVowel directly instead of having to type props.symbol every time. Destructuring is very common in React code.",
       "line": 2
     },
     {
-      "file": "props/src/components/LetterInfo.js",
+      "file": "props-example/src/components/LetterInfo.js",
       "description": "Here we have some more asserts. This one verifies that isVowel is the type that we are expecting",
       "line": 3
     },
     {
-      "file": "props/src/components/LetterInfo.js",
+      "file": "props-example/src/components/LetterInfo.js",
       "description": "And this one makes sure that symbol is an object that has a `lowerCase` field. If we pass a different object to LetterInfo, this assert will fail and the message will print",
       "line": 4
     },
     {
-      "file": "props/src/components/LetterInfo.js",
+      "file": "props-example/src/components/LetterInfo.js",
       "description": "Here we are using the symbol prop. Console log it if you don't remember what it looks like (or look at the data in App.js)",
       "line": 8
     },
     {
-      "file": "props/src/components/LetterInfo.js",
+      "file": "props-example/src/components/LetterInfo.js",
       "description": "Remember that we can use **any** Javascript inside the {}, including ternaries. ",
       "line": 9
     },
     {
-      "file": "props/src/components/Alphabet.js",
+      "file": "props-example/src/components/Alphabet.js",
       "description": "Take a look at this component yourself and ensure that you understand what's going on",
       "line": 3
     },
     {
-      "file": "props/src/components/Alphabet.js",
+      "file": "props-example/src/components/Alphabet.js",
       "description": "We'll add some more asserts so that if we change something that we didn't mean to change, we will be alerted of it immediately (instead of after writing another 50 lines)",
       "line": 5
     },
     {
-      "file": "props/src/App.js",
+      "file": "props-example/src/App.js",
       "description": "In our App component we will be importing the above components",
       "line": 2
     }

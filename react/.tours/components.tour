@@ -7,57 +7,57 @@
       "description": "In React, a **component** is a function that returns part of a web page. That \"part of a webpage\" is represented as **JSX**, which is a way of writing HTML directly in our javascript files. "
     },
     {
-      "file": "components/src/components/Header.js",
+      "file": "components-example/src/components/Header.js",
       "description": "A component is just a regular Javascript function. Here we are not passing parameters, but later we will look at components with parameters. Note that components **must** start with a capital letter.",
       "line": 3
     },
     {
-      "file": "components/src/components/Header.js",
+      "file": "components-example/src/components/Header.js",
       "description": "All components must have a return statement.",
       "line": 4
     },
     {
-      "file": "components/src/components/Header.js",
+      "file": "components-example/src/components/Header.js",
       "description": "It returns **JSX**, which is just regular HTML that also allows you to embed Javascript code. Everything here is HTML except for the text inside the {}, which is interpreted as Javascript code. So we won't get the string \"1+2\" on the page, but rather the string \"3\".  ",
       "line": 7
     },
     {
-      "file": "components/src/components/Header.js",
+      "file": "components-example/src/components/Header.js",
       "description": "Note that a component can only return 1 element at a time. If we want to have more than one element, we need to wrap them in another element (a `<div>` for example). Just like regular HTML, we can give these tags ids. Here we won't be doing anything with the id.",
       "line": 5
     },
     {
-      "file": "components/src/components/Header.js",
+      "file": "components-example/src/components/Header.js",
       "description": "Finally, we have to include the line `export default` and the name of the component (remember, it must start with a capital letter!). This allows us to use this components within other components.",
       "line": 10
     },
     {
-      "file": "components/src/App.js",
+      "file": "components-example/src/App.js",
       "description": "Here is how a component is imported. Notice that Header.js is in a seperate folder, so we have to specify the path. The ./ means \"look in the current folder\" which then looks for the components directory.",
       "line": 1
     },
     {
-      "file": "components/src/App.js",
+      "file": "components-example/src/App.js",
       "description": "We declare another component called `App`. This is usually what we call our top level component (it is the _parent component_ of all other components)",
       "line": 2
     },
     {
-      "file": "components/src/App.js",
+      "file": "components-example/src/App.js",
       "description": "Just like with the Header component, we must have a return statement",
       "line": 3
     },
     {
-      "file": "components/src/App.js",
+      "file": "components-example/src/App.js",
       "description": "We wrap any JSX with multiple elements in a `div` tag, if there is only one element then this is optional",
       "line": 4
     },
     {
-      "file": "components/src/App.js",
+      "file": "components-example/src/App.js",
       "description": "This is how we use components. We treat the component as if it is an HTML tag and put it right in the JSX. This behaves much like a function call, since by putting the component in the JSX like this causes the `Header` function we defined earlier to be called. ",
       "line": 5
     },
     {
-      "file": "components/src/index.js",
+      "file": "components-example/src/index.js",
       "description": "You'll never have to touch `index.js`, but as you can see, the App component is imported and used here (you'll notice that we also had to use `export default` in App.js)",
       "line": 9
     }
