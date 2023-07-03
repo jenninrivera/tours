@@ -28,11 +28,6 @@
     },
     {
       "file": "props/src/components/Letter.js",
-      "description": "As with all components we need to wrap in a div",
-      "line": 6
-    },
-    {
-      "file": "props/src/components/Letter.js",
       "description": "We are \"calling\" the LetterInfo component in JSX syntax",
       "line": 7
     },
