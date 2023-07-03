@@ -6,7 +6,7 @@ function LetterInfo({symbol, isVowel}){
         <div>
             <h3>Upper Case: {symbol.upperCase}</h3>
             <h3>Lower Case: {symbol.lowerCase}</h3>
-            <h3>{symbol.isVowel ? "Vowel" : "Consonant" }</h3>
+            <h3>{isVowel ? "Vowel" : "Consonant" }</h3>
         </div>
     )
 }
