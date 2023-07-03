@@ -23,7 +23,7 @@
     },
     {
       "file": "components/src/components/Header.js",
-      "description": "Note that all components **must** be wrapped in a `<div>` element. Just like regular HTML, we can give these tags ids. Here we won't be doing anything with the id.",
+      "description": "Note that a component can only return 1 element at a time. If we want to have more than one element, we need to wrap them in another element (a `<div>` for example). Just like regular HTML, we can give these tags ids. Here we won't be doing anything with the id.",
       "line": 5
     },
     {
@@ -48,7 +48,7 @@
     },
     {
       "file": "components/src/App.js",
-      "description": "We must wrap any JSX in a `div` tag",
+      "description": "We wrap any JSX with multiple elements in a `div` tag, if there is only one element then this is optional",
       "line": 4
     },
     {
