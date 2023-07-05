@@ -5,6 +5,56 @@
     {
       "title": "Introduction",
       "description": "State is like a global variable for a component. Whenever we need to keep track of a value in our application (a string, a list, a number, etc.)"
+    },
+    {
+      "file": "state-example/src/App.js",
+      "description": "The first thing we need to do is import the `useState` hook from React",
+      "line": 1
+    },
+    {
+      "file": "state-example/src/App.js",
+      "description": "If we want to keep track of a `count` variable, we use the following syntax. First we call `useState` with an _initial value_. In this case the initial value is 0. We assign the results of `useState` to a constant and a callback function. In order to assign them both at once, we _destructure_ the return value of `useState` with []. The first item in the destructuring array is name of the constant that will hold the value of the state (in this case `count`). The second item is the callback function (in this case `setCount`). By convention we name the callback function the same thing as the first constant, but append the word `set` on the front.",
+      "line": 6
+    },
+    {
+      "file": "state-example/src/App.js",
+      "description": "In React we use `onClick` inside JSX instead of `addEventListener`. But just as with `addEventListener`, we need to pass a callback function. This function will run whenever this button is clicked.",
+      "line": 18
+    },
+    {
+      "file": "state-example/src/App.js",
+      "description": "Here is where we use the callback function `setCount` that we got from `useState`. All we pass into `setCount` is the new value that we want `count` to have from now on (in this case `count+1`). We cannot reassign `count` directly by doing `count = count + 1` or `count++`: this will not work. We can only change `count` through the `setCount` callback. When `setCount` is called, the component is _rerendered_. We will see what that means shortly ",
+      "line": 9
+    },
+    {
+      "file": "state-example/src/App.js",
+      "description": "Let's see what happens if we try using a global variable and incrementing it normally when the button is clicked",
+      "line": 3
+    },
+    {
+      "file": "state-example/src/App.js",
+      "description": "Here's the button to control this",
+      "line": 22
+    },
+    {
+      "file": "state-example/src/App.js",
+      "description": "And in the handler we increment normally. You'll notice that when the button is clicked, nothing happens. Try clicking 5 times; still nothing. But if after that we click on the button that is calling `setCount`, we see that the value on this buttons jumps by a lot--the number of times we clicked gets added all at once! The reason for this is that the component does not rerender the HTML until `setCount` is called. So since it is not called in this function, the **old** value remains until the rerender happens.",
+      "line": 13
+    },
+    {
+      "file": "state-example/src/App.js",
+      "description": "Let's look at how `useState` is used for an array instead of a single object. The syntax is the same as above, but we set the initial value to an empty array []",
+      "line": 7
+    },
+    {
+      "file": "state-example/src/App.js",
+      "description": "Again, we cannot modify `countList` directly, we must pass the **new** value to `setCountList`. This means creating a new array with all of the old values plus the new value. We could do this manually, but there is a shortcut: the `...` operator gives us all of the values of an array, and by putting `...countList` in brackets, we get a new array with its values. We then can include any other new values we want in this new array, separated by commas. In this case, we just want the value of `count + 1`",
+      "line": 10
+    },
+    {
+      "file": "state-example/src/App.js",
+      "description": "Finally we map each in `countList` to an `<li>` element contaning that number. Remember that the `key` prop is required by React when we duplicate the same element in a component.",
+      "line": 28
     }
   ],
   "ref": "master"
