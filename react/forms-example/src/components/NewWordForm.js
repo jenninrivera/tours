@@ -2,11 +2,7 @@
 function NewWordForm({addNewWord, updateFormData}){
     function handleSubmit(event){
         event.preventDefault()
-        const newWord = {
-            'text': event.target['text'].value,
-            'origin': event.target['origin'].value
-        }
-        addNewWord(newWord)
+        addNewWord()
         event.target.reset()
     }
     return (

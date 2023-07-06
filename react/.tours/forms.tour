@@ -1,0 +1,106 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "forms",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "Forms are handled a little differently in React since we have to incorporate the `useState` hook. Our main job when handling forms will be to pass handlers down to the form which are responsible for updating state"
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "Familiarize yourself with the data we'll be using. In the future we will be fetching data, but for now we'll just hard code it",
+      "line": 6
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "Here we create call `useState` to set the initial value of `words` to the `wordData` we defined. As usual, `useStates` gives us a callback function (here we call it `setWords`) which can be used to update the state of `words`",
+      "line": 24
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "`searchText` is where we will keep the state of the search bar input field, which we will look at in more detail later. The initial value of `searchText` is an empty string. ",
+      "line": 25
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "In our application, we don't want to display all of the words, only words that contain the string we enter in the search bar. We'll look at the search bar component next.",
+      "line": 40
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "But first note this conditional in the filter: returning true means that nothing gets filtered from `words`, which exactly what we want to happen when nothing has been searched.",
+      "line": 42
+    },
+    {
+      "file": "forms-example/src/components/Search.js",
+      "description": "Our search component is simply an input field with an `onChange` event listener. `onChange` means whenever a letter is added or removed in the text box. The listener itself (the callback function) is a prop that we have passed from the parent.",
+      "line": 7
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "Here is where we pass the `onChange` listener to the Search prop",
+      "line": 51
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "And here is the definition. All we are doing is taking the value from the text box and setting the state of `searchText` to that value. Remember that we declare the `event` parameter here, but the event itself is passed implicitly (just as when we were working with `addEventListener`)",
+      "line": 32
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "Here is where we actually end up using `searchText`; so that the strings in `filteredWords` are only those that contain the string in our search bar. Remember that because everytime we type something in the search bar `setSearchText` is called which causes the component to re-render. This means that this filter is run each time we type.",
+      "line": 45
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "Let's follow the information flow through this component for review. First we are passing the `filteredWords` array as a prop called `words`",
+      "line": 52
+    },
+    {
+      "file": "forms-example/src/components/WordList.js",
+      "description": "With this assert we are verifying that this prop has a length. If it doesn't that means it's not an array and we have a problem",
+      "line": 4
+    },
+    {
+      "file": "forms-example/src/components/WordList.js",
+      "description": "Next we map each word to a `Word` component to which we pass `text` and `key` props. (Remember that the key prop is a requirement from React when we duplicate the same component)",
+      "line": 12
+    },
+    {
+      "file": "forms-example/src/components/Word.js",
+      "description": "Just checking the type of our prop",
+      "line": 2
+    },
+    {
+      "file": "forms-example/src/components/Word.js",
+      "description": "And here's where we use them",
+      "line": 5
+    },
+    {
+      "file": "forms-example/src/components/NewWordForm.js",
+      "description": "For our form, let's start with the JSX. We have an submit event listener, which is pretty familiar, but just like with the search bar we have an `onChange` listener, which again is a prop that we have passed down.",
+      "line": 13
+    },
+    {
+      "file": "forms-example/src/components/NewWordForm.js",
+      "description": "`handleSubmit` is taking care of our typical form operations like `preventDefault` and `reset`. Additionally we are calling a callback function that we passed as a prop called `addNewWord`",
+      "line": 6
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "Before we look at `updateFormData`, let's examine the useState for `formData`. This time we are using an object instead of an array or string. We set it's initial state so that it contains the fields `text` and `origin` which are set to the empty string ",
+      "line": 29
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "When we call `updateFormData`, we must update it in a similar way to how we update arrays. Notice that we cannot do `formData.text = \"new text\"`, we must pass an entirely new object to `setFormData` with the updated values. We can do this by creating a new object with {}, passing in the contents of the current `formData` object with the spread operator `...` and then only updating the field that was modified by the user. Since we named the input boxes the same as our fields, we can get the relevant field with `event.target.id`. Notice that we have to wrap this in [] brackets. We then set the value to `event.target.value`.",
+      "line": 36
+    },
+    {
+      "file": "forms-example/src/App.js",
+      "description": "When `addNewWord` is called, we update the words array with its current value and the value in the form. Remember that the formData object matches the type of the wordData objects {text:string, origin:string}. And since we have used a `useState` callback function, the component rerenders with the new value and we can see the word we added!",
+      "line": 38
+    }
+  ],
+  "ref": "master"
+}
