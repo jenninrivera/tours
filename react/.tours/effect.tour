@@ -1,0 +1,111 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "effect",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "The official React doc on `useEffect` says it all: `useEffect is a React Hook that lets you synchronize a component with an external system.`. For our purposes, an \"external system\" will be an API that we get data from using `fetch`. "
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "We will be building an application to search for DnD spells, similar to this site (https://www.dnd5eapi.co/). ",
+      "line": 4
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "Just like with `useState`, we must import `useEffect` from React",
+      "line": 1
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "The first argument of `useEffect` is a callback function. This function simply contians the code we want to run when React runs the effect.",
+      "line": 9
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "The second argument is a _dependency array_. This array will contain a list of state variables (i.e. useState or props). When one of them changes, React will run the callback function we passed to useEffect. When we have an _empty_ dependency array, this tells React to **only** run the effect the **first** time the component runs. It's very important to include the dependecy array. If it is left out, the effect will be run after every render. Since calling the setter from `useState` causes a rerender, forgetting the [] will cause an infinite loop.",
+      "line": 13
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "The code we want to run in this `useEffect` is this `fetch` where we send a `GET` request to this url. Before we move on, let's examine what it returns:\n```js\n{\n    count: 319\n    results: [...]\n}\n```\nSo it returns an object that contains a `count` field with a number value and a `results` field with an array value. Let's look further into what the `results` array contains. Here is the first object in the array:\n```js\n{\n    index:\t\"acid-arrow\"\n    name:\t\"Acid Arrow\"\n    url:\t\"/api/spells/acid-arrow\"\n}\n```\nSo it has three fields with string values. Later we will be using the `url` field to do another fetch.",
+      "line": 10
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "After we get the json, we set the spellList state to the results array in the response object. It was important for us to examine the object manually so that we could determine that the `results` field is what we want to put in our state, (as opposed to setting the state to the initial response object)",
+      "line": 12
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "Here is our `useState` declaration for `spellList`. We intialize it to an empty array.",
+      "line": 5
+    },
+    {
+      "file": "effect-example/src/components/QueryForm.js",
+      "description": "The next step is to allow users to input a string and search for a spell that matches that string. We are using a controlled form. The form is using callbacks that we passed from the parent component (App)",
+      "line": 9
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "For the `updateQuery` callback, we are actually defining it directly in the prop definition as an anonymous function. All we are doing is setting the state of `query`",
+      "line": 33
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "This is the callback function that is triggered when we submit the form.",
+      "line": 14
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "The first thing we want to do is get the first spell in the `spellList` state that contains the `query` string. We can do this using the `find` function. ",
+      "line": 17
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "`find` will return the first value in an array that matches the condition we provide in the arrow function. (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find). It's similar to `filter`, but instead of returning an array of elements that match, it only returns the first element that matches.",
+      "line": 18
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "If `find` does not locate an element, it returns undefined. ",
+      "line": 20
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "If the spell is undefined, then we want to set `spellInfo` to an object containing an error field with a message",
+      "line": 21
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "If we successfully found a spell in our list, then we do another fetch request with the url field. We don't need to have `useEffect` here because the fetch is triggered by a user event.",
+      "line": 23
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "As with the other fetch, we set the appropriate state to the json response we got",
+      "line": 25
+    },
+    {
+      "file": "effect-example/src/App.js",
+      "description": "Finally, let's look at how we're using the data we just fetched",
+      "line": 36
+    },
+    {
+      "file": "effect-example/src/components/Spell.js",
+      "description": "This component will be using a technique called _conditional rendering_. Basically we return one piece of JSX if a condition is true and a different piece of JSX if the condition is false",
+      "line": 1
+    },
+    {
+      "file": "effect-example/src/components/Spell.js",
+      "description": "`spellInfo.error` will not undefined if did **not** find a spell in `displayQuery` (look back at the call to `setSpellInfo` when `spell` is undefined). ",
+      "line": 2
+    },
+    {
+      "file": "effect-example/src/components/Spell.js",
+      "description": "`spellInfo.error` **is** undefined if we **successfully** found a spell. This is because we set `spellInfo` to the value of the response json, which does not include an error field.",
+      "line": 10
+    }
+  ],
+  "ref": "master"
+}
