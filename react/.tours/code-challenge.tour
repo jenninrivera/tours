@@ -1,0 +1,206 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "code-challenge",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "This is a walkthrough of the comic book collection code challenge."
+    },
+    {
+      "file": "cc/comic-books/README.md",
+      "description": "Always read the full README before starting!",
+      "line": 1
+    },
+    {
+      "file": "cc/comic-books/README.md",
+      "description": "Before we start with any code, we can translate this deliverable into the following tasks:\n\n  - We need to fetch the comics from db.json\n    - Since it says \"when the app starts\", this means `useEffect`!\n  - We need to render the info from each comic onto the page\n    - This means we'll be passing props to child components.\n",
+      "line": 31
+    },
+    {
+      "file": "cc/comic-books/db.json",
+      "description": "Let's first look at the data that we're fetching. It's a list of comic objects",
+      "line": 2
+    },
+    {
+      "file": "cc/comic-books/db.json",
+      "description": "Each comic object has an id, a title, issue, and an image_url",
+      "line": 7
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "We will want to save the data we fetch somewhere. We'll use `useState` initialized to an empty array.",
+      "line": 9
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Because we are interacting with an external resource **outside** of a user event, we need to have `useEffect`. The first argument is an anonymous function.",
+      "line": 15
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "The only thing we are doing in this effect is fetching from the URL provided in the README.",
+      "line": 16
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "We've defined our port number as a constant so that if it changes, we only have to modify the value in one location",
+      "line": 6
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Once we get the json from the response, we call `setComics` with the json, which is a list of comic objects.",
+      "line": 18
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Remember that we need to include the empty dependency array, or else `useEffect` will run **again** after each rerender caused by `setComics`, resulting in an infinite loop",
+      "line": 19
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Next let's pass the comics array to `ComicsContainer` as a prop.",
+      "line": 53
+    },
+    {
+      "file": "cc/comic-books/src/components/ComicsContainer.js",
+      "description": "Within the `ComicsContainer` component, we want to create a new `Comic` component for every comic in the `comics` array.",
+      "line": 6
+    },
+    {
+      "file": "cc/comic-books/src/components/ComicsContainer.js",
+      "description": "Here we create a new `Comic` component",
+      "line": 8
+    },
+    {
+      "file": "cc/comic-books/src/components/ComicsContainer.js",
+      "description": "Remember that the `key` prop is something that React needs internally but is not used by us. We just need to give each component a unique key since we have a list of the same type of component.",
+      "line": 9
+    },
+    {
+      "file": "cc/comic-books/src/components/ComicsContainer.js",
+      "description": "We pass the individual comic object to each `Comic` component",
+      "line": 10
+    },
+    {
+      "file": "cc/comic-books/src/components/Comic.js",
+      "description": "Here's where we populate our image tag with the comic's url and title. There's a lot of code in here for the next deliverable, which we'll look at next.",
+      "line": 7
+    },
+    {
+      "file": "cc/comic-books/README.md",
+      "description": "We are being asked to toggle between two views, so this tells us we'll need to do conditional rendering with a boolean. And since the click event is targeted towards the image or title, we should be working in the Comic component",
+      "line": 32
+    },
+    {
+      "file": "cc/comic-books/src/components/Comic.js",
+      "description": "First we'll make a state for this component that will control if the image is shown or not. We set the intial value of the `showImage` boolean to `true`.",
+      "line": 4
+    },
+    {
+      "file": "cc/comic-books/src/components/Comic.js",
+      "description": "Don't forget to import `useState`",
+      "line": 1
+    },
+    {
+      "file": "cc/comic-books/src/components/Comic.js",
+      "description": "We'll use an if/else statement for our conditional rendering. You can also use a ternary expression if you are comfortable with that.",
+      "line": 5
+    },
+    {
+      "file": "cc/comic-books/src/components/Comic.js",
+      "description": "We return this JSX if the `showImage` boolean is true. We add an anonymous function to onClick which simply sets the `showImage` state to the opposite (using the ! operator) of what it currently is. Note that we could have defined this function above and given it a name.",
+      "line": 6
+    },
+    {
+      "file": "cc/comic-books/src/components/Comic.js",
+      "description": "This JSX is returned when `showImage` is false. We add the same onClick listener, which allows us to successfully toggle between the two views.",
+      "line": 10
+    },
+    {
+      "file": "cc/comic-books/README.md",
+      "description": "For this deliverable, we will need a form to make a new comic and a POST request to persist it.",
+      "line": 33
+    },
+    {
+      "file": "cc/comic-books/src/components/ComicForm.js",
+      "description": "First let's look at our ComicForm component",
+      "line": 1
+    },
+    {
+      "file": "cc/comic-books/src/components/ComicForm.js",
+      "description": "We have a submit event listener which will be run when we click the form's submit button. This function is passed down from App as a prop",
+      "line": 3
+    },
+    {
+      "file": "cc/comic-books/src/components/ComicForm.js",
+      "description": "In each input field we put an onChange event listener, `updateFormData`. This is also a prop that is passed from App. Notice that I'm choosing to keep the form component very simple and handle everything in App. This is not the only correct way of doing this of course, but it might help to remember this as a pattern.",
+      "line": 13
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Let's look at our onChange listener function first (this will run every time we type a letter into an input box)",
+      "line": 21
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "In order to set the formData state object, we want to make a new object with all of formData's old values plus thenew value from the input box. We get the old values by using the spread operator on formData. We then set the value of the object key that matches `event.target.name` to the value in `event.target.value`.\n\nIf you look at the name attributes in the input boxes, you'll notice that they are the same as the key names in our comic objects. Remember that the name part of event.target.name comes from the input tag, it has an attribute called name. Sometimes you'll see id instead of name. ",
+      "line": 22
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Next let's look at the submit listener function.",
+      "line": 24
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Because it's a form submission, we call `preventDefault`",
+      "line": 25
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "In order to persist our new comic object we will do a POST request.",
+      "line": 30
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "For the body, we stringify whatever is in formData. Remember that formData has whatever we have typed into the boxes already, so there's no need to construct a new comic object--we already have it.",
+      "line": 31
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Remember that the response from a POST request is the object that we just sent (as long as there are no errors). We will use that to update the state of our comics array state variable by creating a new array with all of the old comics plus the new comics. Because we have set a state, the component rerenders and our new comic appears.",
+      "line": 34
+    },
+    {
+      "file": "cc/comic-books/README.md",
+      "description": "Finally, let's figure out how to remove a comic from the page and from the database",
+      "line": 34
+    },
+    {
+      "file": "cc/comic-books/src/components/Comic.js",
+      "description": "This is where our remove button is. We are using a function that was passed down as a prop. Notice that we wrapping this function into an additional anonymous function. This is because I want to pass `comic.id` as an argument to `removeComic`. If I were to do `removeComic(comic.id)` without wrapping it in the arrow function, Javascript would interpret it as a __function call__ and try to execute it immediately. Putting it inside an anonymous function prevents this.",
+      "line": 13
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Here's where we define `removeComic`. Take a minute and trace how it is getting passed to the Comic component as a prop.",
+      "line": 36
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Just verifying that we were indeed passed a number for `comicId`",
+      "line": 37
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "Next we do a delete with the comicId we were passed.",
+      "line": 40
+    },
+    {
+      "file": "cc/comic-books/src/components/App.js",
+      "description": "And finally we have to update the state. The state we want is a new array that contains all of the comics execept for the one we just deleted. We can use the `filter` function to accomplish this. With this we have completed all core deliverables!",
+      "line": 41
+    }
+  ],
+  "ref": "master"
+}

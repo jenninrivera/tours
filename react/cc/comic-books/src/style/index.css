@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Permanent+Marker&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Gloria Hallelujah', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+
+h1, h2 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+h1 {
+  background-color: black;
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.grid {
+  display: grid;
+}
+
+.with-sidebar {
+  grid-template-columns: 3fr 1fr;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.comic-item {
+  border: solid black 2px;
+  box-shadow: 3px 5px #222A;
+  width: 300px;
+  background-color: white;
+}
+
+.comic-item img {
+  width: 100%;
+}
+
+.comic-form {
+  text-align: left;
+}
+
+.comic-form input, .comic-form label {
+  display: block;
+  margin-top: 0.5em;
+}
+
+.sidebar {
+  background-color: white;
+  border: solid black 2px;
+  box-shadow: -4px 7px #222A;
+  padding: 1em;
+}
+
+button, input[type=submit] {
+  border: solid black 2px;
+  border-radius: 0.5em;
+  background: none;
+  font-family: 'Permanent Marker', cursive;
+}
+
+input {
+  border: solid black 2px;
+}
