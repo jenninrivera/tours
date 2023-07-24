@@ -1,0 +1,106 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Basic Card Game",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "This tour will walk through a simple card game built in a procedural style.\nRules of the game:\n\n- Each player gets 26 cards\n- A round consists of each player comparing the top\ncard of their deck. The player with the higher \nvalue wins the round and gets a point. If the values\nare the same then the suit is compared and the highest\nby alphabetical order wins.\n- After all cards have been played, the player with\nthe higher score wins\n- If there is a draw, a coin is flipped. If heads player\none wins, if tails player two wins."
+    },
+    {
+      "file": "basic/game.py",
+      "description": "The `make_deck()` function takes no parameters and returns a list of dictionaries. In other words we'll represent a deck as a list of dictionaries, where each dictionary takes the form {'suit':str, 'value':int}",
+      "line": 8
+    },
+    {
+      "file": "basic/game.py",
+      "description": "A set is a builtin data structure in Python. It is like a list, but every element is unique. We create a set just like a list, but with curly braces instead of brackets.",
+      "line": 15
+    },
+    {
+      "file": "basic/game.py",
+      "description": "We can iterate over a set with the for..in syntax just like with lists.",
+      "line": 17
+    },
+    {
+      "file": "basic/game.py",
+      "description": "Here we have a _nested_ loop. So for each suit in the `suits` set, every value will be iterated over.",
+      "line": 18
+    },
+    {
+      "file": "basic/game.py",
+      "description": "So as a result we get every pair of suit and value.",
+      "line": 19
+    },
+    {
+      "file": "basic/game.py",
+      "description": "The `random` module in Python has a builtin method to shuffle a list.",
+      "line": 23
+    },
+    {
+      "file": "basic/game.py",
+      "description": "We had to import it first though",
+      "line": 1
+    },
+    {
+      "file": "basic/game.py",
+      "description": "We want to write a function that returns two hands, one for player 1 and one for player 2. How do we do this? We return a _tuple_ that contains the two values we want. We'll see how to access the values in the tuple when we call the function.",
+      "line": 26
+    },
+    {
+      "file": "basic/game.py",
+      "description": "This call to the `range` function will generate the numbers from 0 to the length of the deck list, not inclusive. So if the deck was a list of length 5, the range function would generate the numbers 0,1,2,3,4",
+      "line": 34
+    },
+    {
+      "file": "basic/game.py",
+      "description": "The parentheses that we wrap around these two variables creates a tuple, which we return",
+      "line": 39
+    },
+    {
+      "file": "basic/game.py",
+      "description": "Our `play_game` function takes two hands, which are lists of dictionaries and returns a string",
+      "line": 41
+    },
+    {
+      "file": "basic/game.py",
+      "description": "This while loop will run until both players are out of cards",
+      "line": 57
+    },
+    {
+      "file": "basic/game.py",
+      "description": "`pop` is a function that can be called on any list. It returns the last element of the list while removing it from the list. So after running\n```py\nl = [1,2,3]\nval = l.pop()\n```\n`l` will be [1,2] and `val` will be 3",
+      "line": 58
+    },
+    {
+      "file": "basic/game.py",
+      "description": "Since each card is a dictionary, we can access the value associated with each key. This works just as you'd expect coming from Javascript",
+      "line": 60
+    },
+    {
+      "file": "basic/game.py",
+      "description": "`choice` is another function in the random module. It selects one random element from a list (in this case the list we called `coin`)",
+      "line": 75
+    },
+    {
+      "file": "basic/game.py",
+      "description": "This function takes a list of dictionaries and returns an int",
+      "line": 80
+    },
+    {
+      "file": "basic/game.py",
+      "description": "Here we go from a list of dictionaries to a list of ints. To to this we use a _list comprehension_. This is equivalent to the following code:\n```py\ncard_values = []\nfor card in hand:\n    card_values.append(card['value'])\n```\n",
+      "line": 81
+    },
+    {
+      "file": "basic/game.py",
+      "description": "`sum` is a builtin function that will give us the sum of a list of numbers (ints or floats)",
+      "line": 82
+    },
+    {
+      "file": "basic/game.py",
+      "description": "Here we are calling the `deal` method, which returns a tuple. We can unpack the values of the tuple (similar to destructuring in Javascript). So we are declaring two variables called `player1_hand` and `player2_hand` and assigning `player1_hand` to the first value in the tuple returned from `deal` and `player2_hand` to the second value in the tuple",
+      "line": 87
+    }
+  ],
+  "ref": "master"
+}
