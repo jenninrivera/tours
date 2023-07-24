@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Card Game OOP",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "This is a rewrite of the basic card game using classes"
+    }
+  ],
+  "ref": "master"
+}
