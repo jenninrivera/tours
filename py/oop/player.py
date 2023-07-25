@@ -7,8 +7,8 @@ if TYPE_CHECKING:
 
 
 class Player:
-    def __init__(self, name) -> None:
-        self.name: str = name
+    def __init__(self, name: str) -> None:
+        self.name = name
         self.hand: list[Card] = []
         self.games: list[Game] = []
 

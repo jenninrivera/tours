@@ -13,8 +13,8 @@ if __name__ == "__main__":
     game = Game(player1, player2, deck)
     game.play()
     for i in range(0,1000):
+        deck.create_new()
         game = Game(player1, player2, deck)
         game.play()
-        deck.create_new()
     print(player1.win_rate())
     print(player2.win_rate())

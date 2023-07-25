@@ -28,6 +28,7 @@ class Game:
         cards in the deck. if the number is even, deal a card to 
         player one, else deal a card to player 2
         '''
+        assert len(self.deck.cards) == 52, "Deck was not refreshed"
         for i in range(0, len(self.deck.cards)):
             if i % 2 == 0:
                 self.player1.hand.append(self.deck.deal_card())

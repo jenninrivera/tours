@@ -4,7 +4,222 @@
   "steps": [
     {
       "title": "Introduction",
-      "description": "This is a rewrite of the basic card game using classes"
+      "description": "This is a rewrite of the basic card game using classes. This tour will follow the execution of the game, which is not as linear as in the Basic example."
+    },
+    {
+      "file": "oop/main.py",
+      "description": "This is Python's way of specifying an entry point. In other words, when we run `python main.py`, the contents of this if statement get executed.",
+      "line": 5
+    },
+    {
+      "file": "oop/main.py",
+      "description": "The first thing we have to do is import the classes we will use.",
+      "line": 4
+    },
+    {
+      "file": "oop/main.py",
+      "description": "We create two player objects. Let's look at how this is done.",
+      "line": 11
+    },
+    {
+      "file": "oop/player.py",
+      "description": "When we call the Player constructor with `Player(\"player 1\")`, the __init__ method gets called. It has one parameter (besides self), which should be a string",
+      "line": 10
+    },
+    {
+      "file": "oop/player.py",
+      "description": "`self.name = name` is actually calling the setter function we define below. Because we have designated name as a property, self.name will actually result in a function call to either the getter or setter. ",
+      "line": 11
+    },
+    {
+      "file": "oop/player.py",
+      "description": "Since we are assigning a value to `self.name` above, we are actually calling this method with the `name` parameter from `__init__`",
+      "line": 20
+    },
+    {
+      "file": "oop/player.py",
+      "description": "If the user passes an empty string, we raise an exception",
+      "line": 25
+    },
+    {
+      "file": "oop/player.py",
+      "description": "We then set a variable called `_name` to the `name` parameter. If you call `self.name` here, you will get a recursion error, because it would be calling the name setter method (which we are currently in)",
+      "line": 26
+    },
+    {
+      "file": "oop/player.py",
+      "description": "We then define an attribute called `hand`, which we set to an empty list. `self.hand` in this case does not call any methods since we have not defined a property for it. Same thing for `games`. Notice that we can use the classes we have defined as types.",
+      "line": 13
+    },
+    {
+      "file": "oop/main.py",
+      "description": "Next we create a Deck object. This constructor takes no parameters",
+      "line": 12
+    },
+    {
+      "file": "oop/deck.py",
+      "description": "In the `__init__` method we create an attribute called `cards` which we intialize to an empty list.",
+      "line": 8
+    },
+    {
+      "file": "oop/deck.py",
+      "description": "Next we call a method within this class.",
+      "line": 9
+    },
+    {
+      "file": "oop/deck.py",
+      "description": "The first thing we do is remove all elements from the cards list. This is because we always want to start with an empty list when this method runs.",
+      "line": 17
+    },
+    {
+      "file": "oop/deck.py",
+      "description": "Within this nested for loop we add a new Card object to the cards list attribute (which we defined as having the type `list[Card]`). Let's look at the Card class next",
+      "line": 22
+    },
+    {
+      "file": "oop/card.py",
+      "description": "The parameters are passed to the two setters that we have defined in this class.",
+      "line": 8
+    },
+    {
+      "file": "oop/card.py",
+      "description": "In the suit setter, we do some input validation, then assign the value of the passed parameter to the `_suit` attribute.",
+      "line": 22
+    },
+    {
+      "file": "oop/card.py",
+      "description": "And wherever we have code such as \n\n```py\ncard = Card('H', 1)\nprint(card.suit)\n```\n`card.suit` is actually calling this property and returning the `_suit` attribute, which was set in the setter.",
+      "line": 12
+    },
+    {
+      "file": "oop/card.py",
+      "description": "We do the same thing with `value`",
+      "line": 35
+    },
+    {
+      "file": "oop/deck.py",
+      "description": "After the card objects are created and added to the cards list attribute, we call the `shuffle` method.",
+      "line": 23
+    },
+    {
+      "file": "oop/deck.py",
+      "description": "This method simply calls the `shuffle` function in the random moddule (which we imported at the top of the file.)",
+      "line": 26
+    },
+    {
+      "file": "oop/main.py",
+      "description": "Now that the deck object is created, we create a new game object passing the two players and the deck objects as parameters.",
+      "line": 13
+    },
+    {
+      "file": "oop/game.py",
+      "description": "Here we assign our parameters to class attributes. These are not properties however. The reason we aren't making these properties is because we don't need to do any input validation on these objects (we've already validated that the player names aren't empty, for example.)",
+      "line": 16
+    },
+    {
+      "file": "oop/game.py",
+      "description": "Just a note about this code block: this is only for using mypy to type check our file. If we don't have the `if TYPE_CHECKING` line, the imports, we will get an import error since we also have to import the Game class into Player in order to type check",
+      "line": 8
+    },
+    {
+      "file": "oop/game.py",
+      "description": "We also have two other attributes. Notice that the type of the `winner` attribute can be Player or None. This is because it starts as None before we've played the game, but after the game is finished it should be a Player.",
+      "line": 18
+    },
+    {
+      "file": "oop/game.py",
+      "description": "These lines append the current game to the games list attribute of the player objects. Since self refers to the current object, right here self is a Game object ",
+      "line": 21
+    },
+    {
+      "file": "oop/main.py",
+      "description": "Next we call the `play` method of the game object we created.",
+      "line": 14
+    },
+    {
+      "file": "oop/game.py",
+      "description": "The first thing we do in the `play` method is call the deal method of the current game object.",
+      "line": 51
+    },
+    {
+      "file": "oop/game.py",
+      "description": "The `deal` method appends Card objects to each player's hand attribute. To get a Card, we call the deck's `deal_card` method.",
+      "line": 35
+    },
+    {
+      "file": "oop/deck.py",
+      "description": "The `deal_card` method calls the `pop` method on the cards list attribute. `pop()` removes the last element from a list and returns it.",
+      "line": 29
+    },
+    {
+      "file": "oop/game.py",
+      "description": "We only play the game if there is no winner yet.",
+      "line": 52
+    },
+    {
+      "file": "oop/game.py",
+      "description": "Here we are checking an _invariant_ with an assertion. An invariant is something that should always be true at this point in the program's execution. Here we want to ensure that the lengths of each player's hand is the same.",
+      "line": 55
+    },
+    {
+      "file": "oop/game.py",
+      "description": "The while loop of the same will continue while the `has_cards` method of the player objects returns true. Let's look at that.",
+      "line": 56
+    },
+    {
+      "file": "oop/player.py",
+      "description": "This method returns the result of a comparison between the length of the hand list and 0. If the length is 0, this method will return false.",
+      "line": 29
+    },
+    {
+      "file": "oop/game.py",
+      "description": "The next method we call from the player object is the `play_card` method. ",
+      "line": 57
+    },
+    {
+      "file": "oop/player.py",
+      "description": "First we do some validation. We don't want a player to be able to play a card if there are no cards in the hand, so we throw an error if this happens",
+      "line": 41
+    },
+    {
+      "file": "oop/player.py",
+      "description": "If there is no error, we return the last card in the player's hand",
+      "line": 42
+    },
+    {
+      "file": "oop/game.py",
+      "description": "Next we are calling a method from the Card class",
+      "line": 59
+    },
+    {
+      "file": "oop/card.py",
+      "description": "The `beats` method takes another Card object as a parameter and returns a boolean",
+      "line": 37
+    },
+    {
+      "file": "oop/card.py",
+      "description": "First we compare the value of the current card and the value of the card parameter. If they are the same, we need to compare by suits.",
+      "line": 44
+    },
+    {
+      "file": "oop/card.py",
+      "description": "Otherwise, we can simply compare by value",
+      "line": 45
+    },
+    {
+      "file": "oop/main.py",
+      "description": "In our simulation loop, we refresh our deck with the `create_new method then create a new game and play it.",
+      "line": 18
+    },
+    {
+      "file": "oop/main.py",
+      "description": "Finally we get the win rate for each player. Let's look at that method.",
+      "line": 20
+    },
+    {
+      "file": "oop/player.py",
+      "description": "This is where we use the `games` list attribute. To get the win rate, we get the number of games won divided by the number of games played.",
+      "line": 37
     }
   ],
   "ref": "master"

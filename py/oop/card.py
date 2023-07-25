@@ -1,5 +1,6 @@
 
 from __future__ import annotations
+
 class Card:
 
     def __init__(self, suit: str, value: int) -> None:
