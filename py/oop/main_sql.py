@@ -38,6 +38,8 @@ WHERE uname = :player_name;
 '''
 
 
+
+
 def open_db(db_name):
     db = sqlite3.connect(db_name)
     db.row_factory = sqlite3.Row
@@ -69,14 +71,19 @@ deck = Deck()
 game = Game(player1, player2, deck)
 game.play()
 
+player1_id = 0
+player2_id = 0
 results,_ = query_db('games.db', get_player_by_name_query, {'uname': player1_name})
-player1_id = results[0]['id']
 if not results:
     _, player1_id = query_db("games.db",insert_player_query, {'uname':player1.name})
-results,_ = query_db('games.db', get_player_by_name_query, {'uname': player1_name})
-player2_id = results[0]['id']
+else:
+    player1_id = results[0]['id']
+results,_ = query_db('games.db', get_player_by_name_query, {'uname': player2_name})
 if not results:
     _, player2_id = query_db("games.db",insert_player_query, {'uname':player2.name})
+else:
+    player2_id = results[0]['id']
+
 winner_id = player1_id if game.winner == player1.name else player2_id
 print(winner_id)
 _, game_id = query_db("games.db",insert_game_query, {'winner':winner_id, 'note':''})
@@ -86,4 +93,5 @@ query_db("games.db",insert_player_game_query, {'game_id':game_id, 'player_id':pl
 
 note = input("Add a note to the game: ")
 query_db('games.db', update_game_note_query, {'game_id':game_id, 'note':note})
+
 
