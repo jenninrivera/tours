@@ -6,7 +6,6 @@ from shared import db
 class User(db.Model):
     __tablename__ = "user"
 
-    serialize_rules = "-post.user"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
 
@@ -23,7 +22,12 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     content = db.Column(db.String)
 
+
     user = db.relationship("User", back_populates="posts")
 
     def to_dict(self):
         return {"id": self.id, "user_id": self.user_id, "content": self.content}
+    
+
+
+
