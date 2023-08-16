@@ -28,7 +28,7 @@ def post_user():
 def get_user_by_id(id: int):
     user = User.query.filter(User.id == id).first()
     if not user:
-        return make_response(jsonify({'error':f'user id {id} not found'}),404)
+        return make_response(jsonify({"error": f"user id {id} not found"}), 404)
     return make_response(jsonify(user.to_dict()), 200)
 
 
@@ -36,7 +36,7 @@ def get_user_by_id(id: int):
 def get_blogs_for_user(id: int):
     user = User.query.filter(User.id == id).first()
     if not user:
-        return make_response(jsonify({'error':f'user id {id} not found'}),404)
+        return make_response(jsonify({"error": f"user id {id} not found"}), 404)
     blogs = [blog.to_dict() for blog in user.blogs]
 
     return make_response(jsonify(blogs), 200)
@@ -56,7 +56,7 @@ def post_blog_for_user(id: int):
 def get_blog_by_id(id: int):
     blog = Blog.query.filter(Blog.id == id).first()
     if not blog:
-        return make_response(jsonify({'error':f'blog id {id} not found'}), 404)
+        return make_response(jsonify({"error": f"blog id {id} not found"}), 404)
     return make_response(jsonify(blog.to_dict()), 200)
 
 
@@ -64,7 +64,7 @@ def get_blog_by_id(id: int):
 def patch_blog(id: int):
     blog = Blog.query.filter(Blog.id == id).first()
     if not blog:
-        return make_response(jsonify({'error':f'blog id {id} not found'}),404)
+        return make_response(jsonify({"error": f"blog id {id} not found"}), 404)
     patch_data = request.get_json()
     for key in patch_data:
         setattr(blog, key, patch_data[key])
@@ -73,11 +73,12 @@ def patch_blog(id: int):
     db.session.commit()
     return make_response(jsonify(blog.to_dict()), 200)
 
+
 @app.patch("/users/<int:id>")
 def patch_user(id: int):
     user = User.query.filter(User.id == id).first()
     if not user:
-        return make_response(jsonify({'error':f'blog id {id} not found'}),404)
+        return make_response(jsonify({"error": f"blog id {id} not found"}), 404)
     patch_data = request.get_json()
     for key in patch_data:
         setattr(user, key, patch_data[key])
@@ -86,11 +87,12 @@ def patch_user(id: int):
     db.session.commit()
     return make_response(jsonify(user.to_dict()), 200)
 
+
 @app.delete("/blogs/<int:id>")
 def delete_blog(id: int):
     blog = Blog.query.filter(Blog.id == id).first()
     if not blog:
-        return make_response(jsonify({'error':f'blog id {id} not found'}),404)
+        return make_response(jsonify({"error": f"blog id {id} not found"}), 404)
     db.session.delete(blog)
     db.session.commit()
     return make_response(jsonify({}), 200)
@@ -100,7 +102,7 @@ def delete_blog(id: int):
 def delete_user(id: int):
     user = User.query.filter(User.id == id).first()
     if not user:
-        return make_response(jsonify({'error':f'user id {id} not found'}),404)
+        return make_response(jsonify({"error": f"user id {id} not found"}), 404)
     db.session.delete(user)
     db.session.commit()
     return make_response(jsonify({}), 200)
