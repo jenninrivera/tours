@@ -108,5 +108,22 @@ def delete_user(id: int):
     return make_response(jsonify({}), 200)
 
 
+@app.get("/blogs/<int:id>/tags")
+def get_tags_for_blog(id: int):
+    blog = Blog.query.filter(Blog.id == id).first()
+    if not blog:
+        return make_response(jsonify({"error": f"blog id {id} not found"}), 404)
+    tags = [bt.tag for bt in blog.blog_tags]
+    # Other ways of writing this:
+    # - Two steps:
+    # blog_tags = [bt for bt in blog.blog_tags]
+    # tags = [bt.tag for bt in blog_tags]
+    # - Without list comprehension
+    # tags = []
+    # for bt in blog.blog_tags:
+    #     tags.append(bt.tag)
+    return make_response(jsonify([tag.to_dict() for tag in tags]), 200)
+
+
 if __name__ == "__main__":
     app.run(port=5555, debug=True)

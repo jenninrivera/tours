@@ -60,5 +60,5 @@ with app.app_context():
     db.session.add_all(blog_tags)
 
     db.session.commit()
-
+    # import ipdb; ipdb.set_trace()
     print()

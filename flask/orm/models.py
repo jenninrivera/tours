@@ -52,4 +52,4 @@ class Tag(db.Model):
     blog_tags = db.relationship("BlogTag", back_populates="tag")
 
     def to_dict(self):
-        return {"text": self.text}
+        return {"id": self.id, "text": self.text}
