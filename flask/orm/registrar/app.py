@@ -62,19 +62,29 @@ def delete_student(id: int):
 def enroll_student(id: int):
     student = Student.query.filter(Student.id == id).first()
     request_data = request.get_json()
-    course = Course.query.filter(Course.id == request_data['course_id']).first()
+    course = Course.query.filter(Course.id == request_data["course_id"]).first()
     if not student:
         make_response(jsonify({"error": f"id {id} not found"}), 404)
     if not course:
         make_response(jsonify({"error": f"id {id} not found"}), 404)
-    enrollment = Enrollment(
-        student_id=student.id, course_id=course.id, term="F2023"
-    )
+    enrollment = Enrollment(student_id=student.id, course_id=course.id, term="F2023")
     db.session.add(enrollment)
     db.session.commit()
     return make_response(jsonify(enrollment.to_dict()), 201)
 
 
+@app.post("/students")
+def post_students():
+    data = request.get_json()
+
+    student = Student(
+        fname=data["fname"], lname=data["lname"], grad_year=data["grad_year"]
+    )
+
+    db.session.add(student)
+    db.session.commit()
+
+    return make_response(jsonify(student.to_dict()), 201)
 
 
 if __name__ == "__main__":

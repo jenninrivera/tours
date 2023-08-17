@@ -44,7 +44,12 @@ def create_enrollments(
         )
     return enrollments
 
+
 with app.app_context():
+    Student.query.delete()
+    Course.query.delete()
+    Enrollment.query.delete()
+    db.session.commit()
     students = create_students()
     db.session.add_all(students)
     db.session.commit()
