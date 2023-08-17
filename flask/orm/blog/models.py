@@ -14,7 +14,8 @@ class User(db.Model):
     @validates("name")
     def validate_name(self, key: str, name: str):
         if len(name) < 0:
-            raise ValueError("name must be at least")
+            raise ValueError("name must be at least 1 character")
+        return name
 
     def to_dict(self):
         return {"id": self.id, "name": self.name}
@@ -31,6 +32,12 @@ class Blog(db.Model):
     user = db.relationship("User", back_populates="blogs")
 
     blog_tags = db.relationship("BlogTag", back_populates="blog")
+
+    @validates('content')
+    def validate_content(self, key:str, content:str):
+        if len(content.split(' ')) < 5:
+            raise ValueError('Blogs must be at least 5 words')
+        return content
 
     def to_dict(self):
         return {
