@@ -76,6 +76,9 @@ def patch_blog(id: int):
 
 @app.patch("/users/<int:id>")
 def patch_user(id: int):
+    import ipdb
+
+    ipdb.set_trace()
     user = User.query.filter(User.id == id).first()
     if not user:
         return make_response(jsonify({"error": f"blog id {id} not found"}), 404)
