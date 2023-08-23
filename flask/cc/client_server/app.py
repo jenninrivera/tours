@@ -41,9 +41,9 @@ def post_message():
     request_json = request.get_json()
     try:
         msg = Message(
-            content=request_json["content"],
-            server_id=request_json["server_id"],
-            client_id=request_json["client_id"],
+            content=request_json.get("content"),
+            server_id=request_json.get("server_id"),
+            client_id=request_json.get("client_id"),
         )
         db.session.add(msg)
         db.session.commit()
@@ -65,7 +65,7 @@ def patch_msg(id: int):
     request_json = request.get_json()
     try:
         for key in request_json:
-            setattr(msg, key, request_json[key])
+            setattr(msg, key, request_json.get(key))
         db.session.add(msg)
         db.session.commit()
         msg_dict = msg.to_dict()
