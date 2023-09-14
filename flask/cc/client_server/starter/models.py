@@ -16,14 +16,14 @@ db = SQLAlchemy(metadata=metadata)
 
 class Server(db.Model):
     __tablename__ = "server_table"
-    
+    id = db.Column(db.Integer, primary_key = True)
 
 
 class Message(db.Model):
     __tablename__ = "message_table"
-    
+    id = db.Column(db.Integer, primary_key = True)
 
 
 class Client(db.Model):
     __tablename__ = "client_table"
-    
+    id = db.Column(db.Integer, primary_key = True)
