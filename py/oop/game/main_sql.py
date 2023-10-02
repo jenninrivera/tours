@@ -34,6 +34,26 @@ INNER JOIN game on game.id = game_id
 WHERE uname = :player_name;
 """
 
+get_won_games_for_player = '''
+SELECT * FROM Game
+WHERE winner = :player_name;
+'''
+
+
+'''
+query=get_all_games_for_player_query
+args= {
+    "player_name":"player 1"
+}
+result = [
+    {
+        uname:1
+        id:1
+        player_id:1
+
+    }
+]
+'''
 DB_NAME = "games.db"
 
 
@@ -59,6 +79,10 @@ def query_db(query, args={}):
     db.close()
     return rv, id
 
+results, id = query_db(get_won_games_for_player, args = {"player_name": 2})
+print("ID | WINNER | NOTE") 
+for result in results:
+    print(f"{result['id']}, {result['winner']}, {result['note']}")
 
 player1_name = input("Enter player 1's name: ")
 player2_name = input("Enter player 2's name: ")
@@ -71,9 +95,11 @@ game.play()
 player1_id = 0
 player2_id = 0
 results, _ = query_db(get_player_by_name_query, {"uname": player1_name})
+# if no player was found with the provided name
 if not results:
     _, player1_id = query_db(insert_player_query, {"uname": player1.name})
 else:
+    # There was a player with that name, so get the id of that player
     player1_id = results[0]["id"]
 results, _ = query_db(get_player_by_name_query, {"uname": player2_name})
 if not results:
@@ -90,3 +116,8 @@ query_db(insert_player_game_query, {"game_id": game_id, "player_id": player2_id}
 
 note = input("Add a note to the game: ")
 query_db(update_game_note_query, {"game_id": game_id, "note": note})
+
+
+results, _ = query_db(get_all_games_for_player_query, {"player_name": "player 1"})
+import ipdb;
+ipdb.set_trace()

@@ -10,10 +10,11 @@ def load_data():
         g.data: dict = json.load(f)
 
 
-# @app.after_request
-# def save_data():
-#     with open('db.json', 'w') as f:
-#         json.dump(g.data, f, indent=4)
+@app.after_request
+def save_data(response):
+    with open('db.json', 'w') as f:
+        json.dump(g.data, f, indent=4)
+    return response
 
 @app.route("/")
 def root():
@@ -43,8 +44,6 @@ def post_lang():
     max_id: int = max([item["id"] for item in g.data["langs"]])
     new_lang["id"] = max_id + 1
     g.data["langs"].append(new_lang)
-    with open("db.json", "w") as f:
-        json.dump(g.data, f, indent=4)
     return make_response(jsonify(new_lang), 201)
 
 
@@ -57,8 +56,6 @@ def delete_lang_by_id(id: int):
     if len(updated_langs) == len(g.data["langs"]):
         return make_response(jsonify({"error": f"id {id} not found"}), 404)
     g.data["langs"] = updated_langs
-    with open("db.json", "w") as f:
-        json.dump(g.data, f, indent=4)
     return make_response(jsonify({}), 200)
 
 

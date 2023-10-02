@@ -11,9 +11,10 @@ def load_data():
 
 
 @app.after_request
-def save_data():
-   with open('db.json', 'w') as f:
-      json.dump(g.data, f, indent=4)
+def save_data(response):
+    with open('db.json', 'w') as f:
+        json.dump(g.data, f, indent=4)
+    return response
 
 @app.route("/")
 def root():
