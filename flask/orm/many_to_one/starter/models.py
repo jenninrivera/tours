@@ -16,7 +16,7 @@ metadata = MetaData(naming_convention=convention)
 db = SQLAlchemy(metadata=metadata)
 
 class User(db.Model):
-    __tablename__ = "user"
+    __tablename__ = "user_table"
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
@@ -26,7 +26,7 @@ class User(db.Model):
 
 
 class Blog(db.Model):
-    __tablename__ = "blog"
+    __tablename__ = "blog_table"
 
     id = db.Column(db.Integer, primary_key=True)
 

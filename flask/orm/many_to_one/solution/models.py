@@ -15,33 +15,33 @@ metadata = MetaData(naming_convention=convention)
 
 db = SQLAlchemy(metadata=metadata)
 
-class User(db.Model):
-    __tablename__ = "user"
-
+class User(db.Model,SerializerMixin):
+    __tablename__ = "user_table"
+    serialize_rules = ("-blog_list.user_object",)
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
 
-    blogs = db.relationship("Blog", back_populates="user")
+    blog_list = db.relationship("Blog", back_populates="user_object")
 
     @validates("name")
     def validate_name(self, key: str, name: str):
-        if len(name) < 0:
+        if len(name) < 1:
             raise ValueError("name must be at least 1 character")
         return name
 
-    def to_dict(self):
-        return {"id": self.id, "name": self.name}
+    # def to_dict(self):
+    #     return {"id": self.id, "name": self.name}
 
 
-class Blog(db.Model):
-    __tablename__ = "blog"
-
+class Blog(db.Model, SerializerMixin):
+    __tablename__ = "blog_table"
+    serialize_rules = ("-user_object.blog_list",)
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("user_table.id"))
     content = db.Column(db.String)
     title = db.Column(db.String)
 
-    user = db.relationship("User", back_populates="blogs")
+    user_object = db.relationship("User", back_populates="blog_list")
 
 
     @validates('content')
@@ -50,12 +50,12 @@ class Blog(db.Model):
             raise ValueError('Blogs must be at least 5 words')
         return content
 
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "user_id": self.user_id,
-            "content": self.content,
-            "title": self.title,
-        }
+    # def to_dict(self):
+    #     return {
+    #         "id": self.id,
+    #         "user_id": self.user_id,
+    #         "content": self.content,
+    #         "title": self.title,
+    #     }
 
 

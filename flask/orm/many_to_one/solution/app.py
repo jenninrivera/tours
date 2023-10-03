@@ -7,7 +7,6 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
 migrate = Migrate(app, db)
 db.init_app(app)
-
 @app.route("/")
 def root():
     return "<h1>Simple blog site</h1>"
@@ -81,9 +80,7 @@ def patch_blog(id: int):
 
 @app.patch("/users/<int:id>")
 def patch_user(id: int):
-    import ipdb
 
-    ipdb.set_trace()
     user = User.query.filter(User.id == id).first()
     if not user:
         return make_response(jsonify({"error": f"blog id {id} not found"}), 404)
