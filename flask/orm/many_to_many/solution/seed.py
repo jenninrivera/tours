@@ -1,7 +1,9 @@
 from faker import Faker
 from models import Student, Course, Enrollment
 from random import choice, randint
-from shared import db, app
+from models import db
+from app import app
+
 
 fake = Faker()
 

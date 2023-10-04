@@ -31,7 +31,7 @@
   - DELETE /students/<int:id>
   - GET /students/<int:id>/courses
   - POST /students/<int:id>/enrollments
-    
+    POST /students
 
 # Response Formats
 
@@ -43,7 +43,7 @@
             fname
             lname
             grad_year
-        }
+            
     ]
   ```
   - GET /students/<int:id>
@@ -53,6 +53,21 @@
           fname
           lname
           grad_year
+          enrollments: [
+                {
+                    id
+                    student_id
+                    course_id
+                    term
+                    course {
+                        id
+                        name
+                        instructor
+                        credits
+                    }
+                }
+            ]
+        }
       }
   ```
   - PATCH /students/<int:id>
@@ -86,6 +101,8 @@
       {
           id
           student_id
+          course_id
+          term
           course {
             id
             name
