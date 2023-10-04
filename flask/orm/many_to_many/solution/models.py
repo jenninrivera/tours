@@ -1,10 +1,9 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
-
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.ext.associationproxy import association_proxy
 import re
-
 
 convention = {
     "ix": "ix_%(column_0_label)s",
@@ -14,20 +13,20 @@ convention = {
     "pk": "pk_%(table_name)s",
 }
 
-
 metadata = MetaData(naming_convention=convention)
+
 db = SQLAlchemy(metadata=metadata)
 
 class Student(db.Model, SerializerMixin):
     __tablename__ = "student_table"
-    serialize_rules = ("-enrollments",)
+    serialize_rules = ("-enrollments.student",)
     id = db.Column(db.Integer, primary_key=True)
     fname = db.Column(db.String)
     lname = db.Column(db.String)
     grad_year = db.Column(db.Integer)
 
     enrollments = db.relationship("Enrollment", back_populates="student")
-
+    courses = association_proxy("enrollments", "course")
     @validates("grad_year")
     def validate(self, key, grad_year):
         if grad_year < 2023:
@@ -65,14 +64,14 @@ class Enrollment(db.Model, SerializerMixin):
 class Course(db.Model, SerializerMixin):
     __tablename__ = "course_table"
 
-    serialize_rules = ("-enrollments",)
+    serialize_rules = ("-enrollments.course",)
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     instructor = db.Column(db.String)
     credits = db.Column(db.Integer)
 
     enrollments = db.relationship("Enrollment", back_populates="course")
-
+    students = association_proxy("enrollments", "student")
     @validates("title")
     def validate_title(self, key, title):
         if len(title) < 1:
