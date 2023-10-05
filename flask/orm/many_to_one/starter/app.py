@@ -89,7 +89,7 @@ def delete_user(id: int):
     db.session.delete(user)
     db.session.commit()
     return make_response(jsonify({}), 200)
-    return {}
+    
 
 
 
