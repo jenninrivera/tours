@@ -32,35 +32,48 @@ def doctor_by_id(id):
     doctor = Doctor.query.filter(Doctor.id == id).first()
     if not doctor:
         return make_response(jsonify({"error":"doctor does not exist"}), 404)
-    return make_response(jsonify(doctor.to_dict()), 200)
+    return make_response(jsonify(doctor.to_dict(rules=("-appointments.patient_id", "-appointments.doctor_id"))), 200)
 
-# @app.get('/patients/<int:id>')
-# def patient_by_id(id):
-#     patient = Patient.query.filter(Patient.id == id).first()
-#     if not patient:
-#         return make_response(jsonify({"error":"patient does not"}), 404)
-#     doctor_list = Patient.doctor.query.all()
-#     return make_response(jsonify(patient.to_dict(rules=("-appointments",))), 200)
+@app.get('/patients/<int:id>')
+def patient_by_id(id):
+    patient = Patient.query.filter(Patient.id == id).first()
+    if not patient:
+        return make_response(jsonify({"error":"patient does not"}), 404)
+    doctors_dict_list = [d.to_dict(rules=("-appointments",)) for d in patient.doctors]
+    patient_dict = patient.to_dict(rules=("-appointments",))
+    patient_dict['doctors'] = doctors_dict_list
+    return make_response(jsonify(patient_dict), 200)
 
 @app.post('/doctors')
 def post_doctor():
     data = request.json
-    new_doctor = Doctor(name=data['name'], specialty=data['specialty'])
-    db.session.add(new_doctor)
-    db.session.commit()
-    return make_response(jsonify(new_doctor.to_dict()), 201)
+    try:
+        new_doctor = Doctor(name=data.get('name'), specialty=data.get('specialty'))
+        db.session.add(new_doctor)
+        db.session.commit()
+        return make_response(jsonify(new_doctor.to_dict(rules=("-appointments",))), 201)
+    except Exception as e:
+        print(e)
+        return make_response(jsonify({"error":"bad doctor post"}), 404)
+
 
 @app.post('/appointments')
 def post_appointments():
     data = request.json
-    new_appiontment = Appointment(day=data['day'], doctor_id=data['doctor_id'], patient_id=data['patient_id'])
-    db.session.add(new_appiontment)
-    db.session.commit()
-    return make_response(jsonify(new_appiontment.to_dict(rules=('-day', '-doctor_id', '-patient_id',))), 201)
+    try:
+        new_appiontment = Appointment(day=data.get('day'), doctor_id=data.get('doctor_id'), patient_id=data.get('patient_id'))
+        db.session.add(new_appiontment)
+        db.session.commit()
+        return make_response(jsonify(new_appiontment.to_dict(rules=('-doctor_id', '-patient_id',))), 201)
+    except Exception as e:
+        print(e)
+        return make_response(jsonify({"error":"invalid appiontment"}), 404)
 
 @app.delete('/appointments/<int:id>')
 def delete_appointment(id):
     appointment = Appointment.query.filter(Appointment.id == id).first()
+    if not appointment:
+            return make_response({"error":"appointment does not exist"}, 404)
     db.session.delete(appointment)
     db.session.commit()
     return make_response(jsonify({}), 200)

@@ -20,7 +20,7 @@ class Patient(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable=False)
 
     appointments = db.relationship("Appointment", back_populates="patient", cascade=("all, delete"))
-    doctor = association_proxy("appointments", "doctor")
+    doctors = association_proxy("appointments", "doctor")
 
 class Appointment(db.Model, SerializerMixin):
     __tablename__ = "appointment_table"
@@ -37,7 +37,7 @@ class Appointment(db.Model, SerializerMixin):
     doctor = db.relationship("Doctor", back_populates="appointments")
 
     @validates('day')
-    def validates_day(self, key, day):
+    def validate_day(self, key, day):
         if (day == "Saturday") or (day == "Sunday"):
             raise ValueError("Day must be between Monday and Friday")
         return day
@@ -51,7 +51,7 @@ class Doctor(db.Model, SerializerMixin):
     specialty = db.Column(db.String, nullable=False)
 
     appointments = db.relationship('Appointment', back_populates='doctor', cascade=('all, delete'))
-    patient = association_proxy("appointments", "patient")
+    patients = association_proxy("appointments", "patient")
 
     @validates('name')
     def validate_name(self, key, name):
