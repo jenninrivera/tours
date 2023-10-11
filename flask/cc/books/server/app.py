@@ -21,44 +21,6 @@ def index():
     return "Hello world"
 
 
-@app.get("/publishers/<int:id>")
-def get_publisher_by_id(id: int):
-    pub = Publisher.query.filter(Publisher.id == id).first()
-    authors: list[dict] = []
-    for book in pub.book_list:
-        authors.append(book.author_object.to_dict())
-    pub_dict = pub.to_dict()
-    pub_dict["authors"] = authors
-
-    return make_response(jsonify(pub_dict), 200)
-
-
-@app.get("/books")
-def get_books():
-    books = Book.query.all()
-    data = [b.to_dict() for b in books]
-    return make_response(jsonify(data), 200)
-
-
-# write your routes here!
-
-
-@app.post("/books")
-def post_book():
-    request_data = request.get_json()
-    try:
-        book = Book(
-            title=request_data["title"],
-            page_count=request_data["page_count"],
-            author_id=request_data["author_id"],
-            publisher_id=request_data["publisher_id"],
-        )
-        db.session.add(book)
-        db.session.commit()
-        return make_response(jsonify(book.to_dict()), 202)
-    except:
-        return make_response(jsonify({"error": "ya messed up son"}), 405)
-
 
 if __name__ == "__main__":
     app.run(port=5555, debug=True)
